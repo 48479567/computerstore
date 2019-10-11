@@ -1,0 +1,11 @@
+<button
+  mat-button
+  (click)="menuItemIconIsOpen = !menuItemIconIsOpen">
+  <mat-icon>{{ menuItemIconIsOpen? 'menu' : 'menu_open' }}</mat-icon>
+</button>
+<button
+  *ngFor="let item of menuItemLinks"
+  routerLink="{{item.link}}"
+  mat-button
+  >{{ item.label }}</button>
+
