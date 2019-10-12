@@ -3,14 +3,14 @@ import { MenuItemLink, MenuItem } from 'src/app/shared/models/menu/header.menu.m
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html'
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
 
 export class HeaderComponent implements OnInit {
-  menuItemIconIsOpen: false;
+  menuItemIconIsOpen = false;
 
   menuItemLinks: MenuItemLink[] = [
-    new MenuItemLink('product', './product'),
     new MenuItemLink('signin', '/signin'),
     new MenuItemLink('signup', '/signup'),
   ];
@@ -18,4 +18,9 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
+
+  toggle(drawer: any): void {
+    drawer.toggle();
+    this.menuItemIconIsOpen = !this.menuItemIconIsOpen;
+  }
 }

@@ -4,18 +4,21 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { HomeComponent } from './home.component';
-import { HeaderComponent, FooterComponent } from './partials';
-
-
+import { HeaderComponent, FooterComponent, SidebarComponent } from './partials';
 
 const COMPONENTS = [
   HomeComponent,
   HeaderComponent,
-  FooterComponent
+  FooterComponent,
+  SidebarComponent,
+
 ];
 
 @NgModule({
-  imports: [HomeRoutingModule, CommonModule, SharedModule, ],
+  imports: [
+    HomeRoutingModule,
+    CommonModule,
+    SharedModule, ],
   declarations: [...COMPONENTS],
   exports: [...COMPONENTS],
   providers: [],

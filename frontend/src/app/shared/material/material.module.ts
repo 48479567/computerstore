@@ -4,9 +4,13 @@ import {
   MatMenuModule,
   MatSidenavModule,
   MatButtonModule,
-  MatCardModule,
   MatButtonToggleModule,
-  MatIconModule
+  MatCardModule,
+  MatIconModule,
+  MatExpansionModule,
+  MatListModule,
+  MatFormFieldModule,
+  MatInputModule,
 
 } from '@angular/material';
 
@@ -20,7 +24,13 @@ import {
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
+    MatListModule,
     MatIconModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule,
+
+
 
   ],
   providers: [],
