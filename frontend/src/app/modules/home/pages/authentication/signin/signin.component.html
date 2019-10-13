@@ -4,11 +4,18 @@
       <mat-card-title>Welcome</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <app-dynamic-form [questions]="questions"></app-dynamic-form>
+      <app-dynamic-form #dinamicForm [questions]="questions"></app-dynamic-form>
     </mat-card-content>
     <mat-card-actions>
-      <a routerLink="/signup">Create account</a>
+      <button
+      type="submit"
+      mat-raised-button color="primary"
+      [disabled]="!dinamicForm.form.valid"
+      (click)="dinamicForm.onSubmit()"
+      >LOGIN</button>
+
     </mat-card-actions>
+    <a routerLink="/signup">Create account</a>
   </mat-card>
 </div>
 

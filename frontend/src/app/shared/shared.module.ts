@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material/material.module';
+import { ChartsModule } from 'ng2-charts';
 
 import {
   DynamicFormComponent,
@@ -15,7 +16,14 @@ const COMPONENTS = [
 ];
 
 @NgModule({
-  imports: [MaterialModule, CommonModule, ReactiveFormsModule],
+  imports: [
+    MaterialModule,
+    CommonModule,
+    ReactiveFormsModule,
+    ChartsModule,
+
+
+  ],
   exports: [MaterialModule, ...COMPONENTS],
   declarations: [...COMPONENTS],
   providers: [],

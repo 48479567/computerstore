@@ -1,10 +1,8 @@
-:host {
-  padding: 40px;
-}
+
 .product-card {
+  display: inline-block;
+  margin: 20px;
   width: 300px;
-  float: left;
-  margin: 15px;
 }
 .product-header-image {
   background-size: cover;

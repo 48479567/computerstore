@@ -4,10 +4,16 @@
       <mat-card-title>Create your Account</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <app-dynamic-form [questions]="questions"></app-dynamic-form>
+      <app-dynamic-form #dinamicForm [questions]="questions"></app-dynamic-form>
     </mat-card-content>
     <mat-card-actions>
-      <a routerLink="/signin">Sign in instead</a>
+      <button
+      type="submit"
+      mat-raised-button color="primary"
+      [disabled]="!dinamicForm.form.valid"
+      (click)="dinamicForm.onSubmit()"
+      >CREATE</button>
     </mat-card-actions>
+    <a routerLink="/signin">Sign in instead</a>
   </mat-card>
 </div>
