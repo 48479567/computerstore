@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCard } from 'src/app/shared/models/schema/product/product.schema';
+import { ProductService } from 'src/app/core/services/schema/product.service';
 
 @Component({
   selector: 'app-product',
@@ -22,7 +23,9 @@ export class ProductComponent implements OnInit {
 
   ];
 
-  constructor() { }
+  constructor(
+    private productService: ProductService
+  ) { }
 
   ngOnInit() { }
 }

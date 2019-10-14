@@ -8,8 +8,13 @@ const routes: Routes = [
       { path: 'product',
         loadChildren: () => import('./pages/product/product.module')
                               .then(mod => mod.ProductModule)
+      },
+      {
+        path: 'result',
+        loadChildren: () => import('./pages/result/result.module')
+                              .then(mod => mod.ResultModule)
       }
-    ]
+    ],
   },
 ];
 

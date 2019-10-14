@@ -6,14 +6,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dynamic-form',
-  templateUrl: './dynamic-form.component.html',
-  styles: [`
-    .container-button {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-  `]
+  templateUrl: './dynamic-form.component.html'
 })
 
 export class DynamicFormComponent implements OnInit {

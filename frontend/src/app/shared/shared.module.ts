@@ -8,11 +8,12 @@ import {
 } from './components/form';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ReportComponent } from './components/report';
 
 const COMPONENTS = [
   DynamicFormComponent,
   DynamicFormQuestionComponent,
-
+  ReportComponent
 ];
 
 @NgModule({
@@ -22,10 +23,9 @@ const COMPONENTS = [
     ReactiveFormsModule,
     ChartsModule,
 
-
   ],
   exports: [MaterialModule, ...COMPONENTS],
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, ReportComponent],
   providers: [],
 })
 export class SharedModule { }

@@ -3,7 +3,8 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  padding-top: 50px;
+  height: 60%;
+  padding-top: 30px;
 }
 
 mat-card-header, mat-card-actions {
@@ -12,11 +13,11 @@ mat-card-header, mat-card-actions {
   text-align: center;
   align-content: center;
   align-items: center;
-  padding: 25px 0;
+  padding: 20px 0;
 }
 
 mat-card {
-  padding: 30px 70px;
+  padding: 20px 70px;
 }
 
 a {

@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="limit">
   <button
     mat-button
     (click)="toggle(drawer)">
@@ -13,14 +13,15 @@
     >{{ item.label }}</button>
 </mat-card>
 <mat-drawer-container
-  style="position:absolute;"
+  style="
+    position:absolute;
+    width: 100%;
+    height: 88%;"
   hasBackdrop="false">
-  <mat-drawer #drawer mode="side" style="height:90%;">
-    <br/><br/><br/><br/><br/>
-    <app-sidebar style="position:relative;top:60px"></app-sidebar>
+  <mat-drawer #drawer mode="side">
+    <app-sidebar></app-sidebar>
   </mat-drawer>
   <mat-drawer-content>
-    <br/><br/><br/><br/>
     <ng-content></ng-content>
   </mat-drawer-content>
 </mat-drawer-container>
