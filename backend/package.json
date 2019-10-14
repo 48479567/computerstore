@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node ./src/server.js"
   },
   "author": "Sergio Espinoza <48479567.sjep@gmail.com>",
   "license": "MIT",
