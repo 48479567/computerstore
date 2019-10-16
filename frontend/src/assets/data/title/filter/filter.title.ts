@@ -14,7 +14,7 @@ export const filtersCharts: FilterToggle[] = [
   new FilterToggle('Bar', 'bar'),
   new FilterToggle('Radar', 'radar'),
   new FilterToggle('Pie', 'pie'),
-  new FilterToggle('Doghnut', 'doghnut'),
+  new FilterToggle('Doughnut', 'doughnut'),
   new FilterToggle('Polar Area', 'polarArea'),
   new FilterToggle('Bubble', 'bubble'),
   new FilterToggle('Scatter', 'scatter'),

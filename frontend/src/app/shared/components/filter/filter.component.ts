@@ -8,11 +8,16 @@ import { FilterToggle } from '../../models';
 export class FilterComponent implements OnInit {
   @Input() filtersSources: FilterToggle[];
   @Input() filtersCharts: FilterToggle[];
+  value: string;
 
   ngOnInit() {
     console.log('filtersSources', this.filtersSources);
     console.log('filtersCharts', this.filtersCharts);
 
+  }
+
+  log(value: string) {
+    this.value = value;
   }
 
 }

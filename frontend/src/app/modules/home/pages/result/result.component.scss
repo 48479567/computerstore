@@ -1,11 +1,13 @@
 :host {
   display: flex;
   justify-content: center;
+  width: 100%;
   flex-flow: row wrap;
 }
 
 mat-card {
   display: inline-block;
+  width: 300px;
 }
 
 app-report {

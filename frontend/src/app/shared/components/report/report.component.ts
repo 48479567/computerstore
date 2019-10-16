@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ReportComponent implements OnInit {
   @Input() data: any[];
+  @Input() type: string;
 
   public barChartOptions = {
     scaleShowVerticalLines: false,
@@ -18,7 +19,6 @@ export class ReportComponent implements OnInit {
     '2015', '2016', '2017', '2018', '2019'
   ];
 
-  public barChartType = 'bar';
   public barChartLegend = true;
 
   public barChartData = [];
@@ -26,6 +26,7 @@ export class ReportComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.type = 'bar';
     this.barChartData = [
       { data: this.data.map(d => d.quantity) , label: 'Stock' },
       { data: this.data.map(d => d.sales), label: 'Sale' }
