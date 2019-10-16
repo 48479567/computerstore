@@ -1,8 +1,14 @@
-.product-card {
+:host {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+mat-card {
   display: inline-block;
-  margin: 10px;
-  width: 300px;
 }
-.product-header-image {
-  background-size: cover;
+
+app-report {
+  display: inline-block;
 }
+

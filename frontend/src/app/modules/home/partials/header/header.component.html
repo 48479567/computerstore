@@ -1,23 +1,19 @@
-<mat-card class="limit">
-  <button
-    mat-button
-    (click)="toggle(drawer)">
-    <mat-icon>{{ menuItemIconIsOpen? 'menu_open' : 'menu' }}</mat-icon>
-  </button>
-
-  <button
-    class="right"
-    *ngFor="let item of menuItemLinks"
-    [routerLink]="item.link"
-    mat-button
-    >{{ item.label }}</button>
-</mat-card>
-<mat-drawer-container
-  style="
-    position:absolute;
-    width: 100%;
-    height: 88%;"
-  hasBackdrop="false">
+<mat-toolbar class="toolbar" color="primary">
+  <mat-toolbar-row >
+    <button
+      mat-button
+      (click)="toggle(drawer)">
+      <mat-icon>{{ menuItemIconIsOpen? 'menu_open' : 'menu' }}</mat-icon>
+    </button>
+    <button
+      class="right"
+      *ngFor="let item of menuItemLinks"
+      [routerLink]="item.link"
+      mat-button
+      >{{ item.label }}</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-drawer-container hasBackdrop="false">
   <mat-drawer #drawer mode="side">
     <app-sidebar></app-sidebar>
   </mat-drawer>

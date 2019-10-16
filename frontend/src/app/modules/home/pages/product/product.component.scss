@@ -1,6 +1,11 @@
+:host {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
 .product-card {
   display: inline-block;
-  margin: 10px;
   width: 300px;
 }
 .product-header-image {

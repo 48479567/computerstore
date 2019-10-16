@@ -2,18 +2,24 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from './material/material.module';
 import { ChartsModule } from 'ng2-charts';
 
-import {
-  DynamicFormComponent,
-  DynamicFormQuestionComponent
-} from './components/form';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ReportComponent } from './components/report';
+import {
+  DynamicFormComponent,
+  DynamicFormQuestionComponent,
+  ReportComponent,
+  ChartComponent,
+  FilterComponent
+
+} from './components';
 
 const COMPONENTS = [
   DynamicFormComponent,
   DynamicFormQuestionComponent,
-  ReportComponent
+  ReportComponent,
+  ChartComponent,
+  FilterComponent,
+
 ];
 
 @NgModule({
@@ -25,7 +31,7 @@ const COMPONENTS = [
 
   ],
   exports: [MaterialModule, ...COMPONENTS],
-  declarations: [...COMPONENTS, ReportComponent],
+  declarations: [...COMPONENTS],
   providers: [],
 })
 export class SharedModule { }

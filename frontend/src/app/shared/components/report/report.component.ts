@@ -11,6 +11,7 @@ export class ReportComponent implements OnInit {
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true,
+
   };
 
   public barChartLabels = [

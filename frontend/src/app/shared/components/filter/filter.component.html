@@ -1,0 +1,6 @@
+<mat-button-toggle-group #group="matButtonToggleGroup">
+  <mat-button-toggle *ngFor="let filter of filtersCharts"
+    [value]="filter.value">
+    {{ filter.label }}
+  </mat-button-toggle>
+</mat-button-toggle-group>
