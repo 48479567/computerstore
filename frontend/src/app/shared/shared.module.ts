@@ -9,7 +9,10 @@ import {
   DynamicFormQuestionComponent,
   ReportComponent,
   ChartComponent,
-  FilterComponent
+  FilterComponent,
+  DialogComponent,
+  FormDialogComponent,
+  TableComponent,
 
 } from './components';
 
@@ -19,6 +22,15 @@ const COMPONENTS = [
   ReportComponent,
   ChartComponent,
   FilterComponent,
+  DialogComponent,
+  FormDialogComponent,
+  TableComponent
+
+];
+
+const ENTRY_COMPONENTS = [
+  DialogComponent,
+  FormDialogComponent,
 
 ];
 
@@ -32,6 +44,7 @@ const COMPONENTS = [
   ],
   exports: [MaterialModule, ...COMPONENTS],
   declarations: [...COMPONENTS],
+  entryComponents: [...ENTRY_COMPONENTS],
   providers: [],
 })
 export class SharedModule { }

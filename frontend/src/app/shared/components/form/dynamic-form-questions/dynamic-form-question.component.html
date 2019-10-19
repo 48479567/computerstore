@@ -1,9 +1,7 @@
 <div [formGroup]="form">
   <div [ngSwitch]="question.controlType">
 
-    <mat-form-field
-      style="padding-bottom:0"
-      appearance="outline">
+    <mat-form-field appearance="outline">
       <mat-label>{{ question.label }}</mat-label>
       <input
       *ngSwitchCase="'textbox'"
@@ -15,18 +13,18 @@
         [id]="question.key"
         [type]="question.type"
         required />
-        <mat-error>
-          {{ question.label }} is required!!
-        </mat-error>
+      <mat-select *ngSwitchCase="'dropdown'"
+        [formControlName]="question.key"
+        [placeholder]="question.label"
+        [id]="question.key">
+        <mat-option *ngFor="let opt of question.options" [value]="opt.value">
+          {{ opt.key }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="question.required">
+        {{ question.label }} is required!!
+      </mat-error>
     </mat-form-field>
-
-    <!-- <select *ngSwitchCase="'dropdown'"
-      [formControlName]="question.key"
-      [id]="question.key">
-      <option *ngFor="let opt of question.options" [value]="opt.key">
-        {{ opt.value }}
-      </option>
-    </select> -->
 
   </div>
 </div>

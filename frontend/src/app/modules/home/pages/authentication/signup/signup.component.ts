@@ -7,7 +7,6 @@ const questions: QuestionBase<any>[] = [
     label: 'First name',
     value: '',
     required: true,
-    order: 1,
     type: 'text'
   }),
   new TextboxQuestion({
@@ -15,7 +14,6 @@ const questions: QuestionBase<any>[] = [
     label: 'Last name',
     value: '',
     required: true,
-    order: 2,
     type: 'text'
   }),
   new TextboxQuestion({
@@ -23,7 +21,6 @@ const questions: QuestionBase<any>[] = [
     label: 'Username',
     value: '',
     required: true,
-    order: 3,
     type: 'text'
   }),
   new TextboxQuestion({
@@ -31,7 +28,6 @@ const questions: QuestionBase<any>[] = [
     label: 'Password',
     value: '',
     required: true,
-    order: 4,
     type: 'password'
   }),
   new TextboxQuestion({
@@ -39,7 +35,6 @@ const questions: QuestionBase<any>[] = [
     label: 'Confirm',
     value: '',
     required: true,
-    order: 5,
     type: 'password'
   }),
 ];

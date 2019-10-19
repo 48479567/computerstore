@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { QuestionBase } from 'src/app/shared/models';
 import { FormGroup } from '@angular/forms';
 
@@ -9,14 +9,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./dynamic-form-question.component.scss']
 })
 
-export class DynamicFormQuestionComponent implements OnInit {
+export class DynamicFormQuestionComponent {
   @Input() question: QuestionBase<any>;
   @Input() form: FormGroup;
-
-  constructor(
-  ) { }
-
-  ngOnInit() { }
-
-
 }

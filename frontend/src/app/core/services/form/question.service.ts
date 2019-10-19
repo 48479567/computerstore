@@ -4,6 +4,8 @@ import {
   TextboxQuestion,
   DropdownQuestion
 } from 'src/app/shared/models';
+import { Observable, of } from 'rxjs';
+import { categories } from '../../mocks/data';
 
 @Injectable({
   providedIn: 'root'
@@ -20,26 +22,47 @@ export class QuestionService {
           { key: 'good', value: 'Good' },
           { key: 'unproven', value: 'Unproven' },
         ],
-        order: 3
       }),
       new TextboxQuestion({
         key: 'firstName',
         label: 'First name',
         value: 'Bombasto',
         required: true,
-        order: 1
       }),
 
       new TextboxQuestion({
         key: 'emailAddress',
         label: 'Email',
         type: 'email',
-        order: 2
       })
     ];
 
-    return questions.sort((a, b) => a.order - b.order);
+    return questions;
 
   }
+
+  getQuestionsDialog(data: any): Observable<QuestionBase<any>[]>  {
+    const categoryQuestions: QuestionBase<any>[] = data.map((d: any) => {
+      const key: string = d.name.replace(/\s+/g, '').toLowerCase();
+      return {
+        key,
+        label: d.name,
+        value: key,
+        required: true,
+        type: 'text'
+
+      };
+    });
+    return of(categoryQuestions);
+  }
+
+  getProductsQuestions() {
+
+  }
+
+  getQuestionsProducts() {
+
+  }
+
 
 }

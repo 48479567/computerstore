@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCard } from 'src/app/shared/models/schema/product/product.schema';
 import { ProductService } from 'src/app/core/services/schema/product.service';
+import { MatDialog } from '@angular/material';
+import { FormDialogComponent } from 'src/app/shared/components';
+import { FormDialogData } from 'src/app/shared/models/dialog/dialog.model';
+import { TextboxQuestion, DropdownQuestion } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-product',
@@ -24,8 +28,60 @@ export class ProductComponent implements OnInit {
   ];
 
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() { }
+
+  openFormDialog(selectedProduct: ProductCard): void {
+    const formDialogRef = this.dialog.open(FormDialogComponent, {
+      data: { title: 'Product Dialog', questions: [
+        new TextboxQuestion({
+          key: 'productname',
+          label: 'Product Name',
+          value: selectedProduct.name,
+          required: true,
+          type: 'text',
+        }),
+        new TextboxQuestion({
+          key: 'idproduct',
+          label: 'ID Product',
+          value: '',
+          required: true,
+          type: 'text'
+        }),
+        new TextboxQuestion({
+          key: 'quantity',
+          label: 'Quantity',
+          value: selectedProduct.quantity,
+          required: true,
+          type: 'number'
+        }),
+        new TextboxQuestion({
+          key: 'customer',
+          label: 'Customer',
+          value: '',
+          required: true,
+          type: 'text'
+        }),
+        new DropdownQuestion({
+          key: 'type',
+          label: 'Types',
+          options: [
+            { key: 'Value 1', value: 'value1' },
+            { key: 'Value 2', value: 'value2' },
+            { key: 'Value 3', value: 'value3' },
+          ]
+        }),
+        new TextboxQuestion({
+          key: 'idphonecustomer',
+          label: 'ID / Phone Number Customer',
+          value: '',
+          required: true,
+          type: 'text'
+        }),
+      ], content: selectedProduct } as FormDialogData
+    } );
+  }
 }

@@ -11,9 +11,14 @@ import {
   MatListModule,
   MatFormFieldModule,
   MatInputModule,
+  MatSelectModule,
   MatChipsModule,
   MatBadgeModule,
   MatToolbarModule,
+  MatDialogModule,
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule,
 
 } from '@angular/material';
 
@@ -32,10 +37,14 @@ import {
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     MatChipsModule,
     MatBadgeModule,
     MatToolbarModule,
-
+    MatDialogModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
 
   ],
   providers: [],

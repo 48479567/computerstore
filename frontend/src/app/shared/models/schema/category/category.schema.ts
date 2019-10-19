@@ -1,11 +1,11 @@
-export class Set {
+export class Category {
   constructor(
     public name: string,
     public quantity: number
   ) { }
 }
 
-export class SetCard extends Set {
+export class CategoryCard extends Category {
   constructor(
     public name: string,
     public quantity: number,
@@ -15,15 +15,16 @@ export class SetCard extends Set {
    }
 }
 
-export class SetSchema extends Set {
+export class CategorySchema extends CategoryCard {
   constructor(
     public id: number,
     public name: string,
-    public set: string,
-    public mark: string,
     public quantity: number,
-    public sales: number
+    public sales: number,
+    public image: string,
+    public description?: string,
+    public createdAt?: Date
   ) {
-    super(name, quantity);
+    super(name, quantity, image);
    }
 }

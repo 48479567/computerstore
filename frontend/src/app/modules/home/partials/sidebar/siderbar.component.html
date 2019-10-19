@@ -1,21 +1,9 @@
-<mat-accordion >
-  <mat-expansion-panel color="primary">
-    <mat-expansion-panel-header>
-      <mat-panel-title>Products</mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-list>
-      <mat-list-item routerLink="./product">Info</mat-list-item>
-      <mat-list-item>Add</mat-list-item>
-    </mat-list>
-
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>Results</mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-list>
-      <mat-list-item routerLink="./result">Info</mat-list-item>
-      <mat-list-item>Add</mat-list-item>
-    </mat-list>
-  </mat-expansion-panel>
-</mat-accordion>
+<mat-expansion-panel *ngFor="let page of pages">
+  <mat-expansion-panel-header>
+    <mat-panel-title>{{ page.title }}</mat-panel-title>
+  </mat-expansion-panel-header>
+  <mat-list>
+    <mat-list-item [routerLink]="'./'+page.path">Info</mat-list-item>
+    <mat-list-item>Stadistical</mat-list-item>
+  </mat-list>
+</mat-expansion-panel>

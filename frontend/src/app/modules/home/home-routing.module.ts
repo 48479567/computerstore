@@ -5,6 +5,11 @@ import { HomeComponent } from './home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent,
     children: [
+      {
+        path: 'category',
+        loadChildren: () => import('./pages/category/category.module')
+                              .then(mod => mod.CategoryModule)
+      },
       { path: 'product',
         loadChildren: () => import('./pages/product/product.module')
                               .then(mod => mod.ProductModule)
@@ -13,7 +18,7 @@ const routes: Routes = [
         path: 'result',
         loadChildren: () => import('./pages/result/result.module')
                               .then(mod => mod.ResultModule)
-      }
+      },
     ],
   },
 ];

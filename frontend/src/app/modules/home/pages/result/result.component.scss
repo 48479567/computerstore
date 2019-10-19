@@ -5,12 +5,18 @@
   flex-flow: row wrap;
 }
 
-mat-card {
+mat-card, div {
   display: inline-block;
-  width: 300px;
+  width: 400px;
 }
 
 app-report {
   display: inline-block;
 }
+
+app-filter {
+  position: absolute;
+  bottom: 15px;
+}
+
 

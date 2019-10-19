@@ -8,7 +8,6 @@ const questions: QuestionBase<any>[] = [
     label: 'username',
     value: '',
     required: true,
-    order: 1,
     type: 'text'
   }),
   new TextboxQuestion({
@@ -16,7 +15,6 @@ const questions: QuestionBase<any>[] = [
     label: 'password',
     value: '',
     required: true,
-    order: 2,
     type: 'password'
   }),
 ];
