@@ -19,6 +19,7 @@ import {
   MatTableModule,
   MatSortModule,
   MatPaginatorModule,
+  MatTooltipModule,
 
 } from '@angular/material';
 
@@ -45,6 +46,7 @@ import {
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatTooltipModule,
 
   ],
   providers: [],

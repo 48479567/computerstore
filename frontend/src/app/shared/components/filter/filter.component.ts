@@ -1,13 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FilterToggle } from '../../models';
+import { FilterToggleIcon } from '../../models';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
-  @Input() filtersSources: FilterToggle[] = [];
-  @Input() filtersCharts: FilterToggle[] = [];
+  @Input() filtersSources: FilterToggleIcon[] = [];
   value: string;
 
   ngOnInit() {

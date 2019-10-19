@@ -4,7 +4,8 @@ import { ProductService } from 'src/app/core/services/schema/product.service';
 import { MatDialog } from '@angular/material';
 import { FormDialogComponent } from 'src/app/shared/components';
 import { FormDialogData } from 'src/app/shared/models/dialog/dialog.model';
-import { TextboxQuestion, DropdownQuestion } from 'src/app/shared/models';
+import { TextboxQuestion, DropdownQuestion, FilterToggleIcon } from 'src/app/shared/models';
+import { FilterService } from 'src/app/core/services/filter/filter.service';
 
 @Component({
   selector: 'app-product',
@@ -13,6 +14,8 @@ import { TextboxQuestion, DropdownQuestion } from 'src/app/shared/models';
 })
 
 export class ProductComponent implements OnInit {
+  filtersIcon: FilterToggleIcon[];
+
   products: ProductCard[] = [
     new ProductCard('Product 1', 2, 'https://i.imgur.com/boLV7nu.png'),
     new ProductCard('Product 2', 2, 'https://i.imgur.com/rUZlSSz.png'),
@@ -29,10 +32,20 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private filterService: FilterService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getFiltersIcon();
+  }
+
+  getFiltersIcon(): void {
+    this.filterService.getFiltersIcon().subscribe(
+      (filtersIcon: FilterToggleIcon[]) => this.filtersIcon = filtersIcon,
+      (error) => console.error(error)
+    );
+  }
 
   openFormDialog(selectedProduct: ProductCard): void {
     const formDialogRef = this.dialog.open(FormDialogComponent, {

@@ -1,22 +1,27 @@
-import { FilterToggle } from 'src/app/shared/models';
+import { FilterToggle, FilterToggleIcon } from 'src/app/shared/models';
 
-export const filtersSources: FilterToggle[] = [
-  new FilterToggle('Products', 'product'),
-  new FilterToggle('Personal', 'personal'),
-  new FilterToggle('Sets', 'sets'),
-  new FilterToggle('Sales', 'sales'),
-  new FilterToggle('Stock', 'stock'),
+export const filtersSources: FilterToggleIcon[] = [
+  new FilterToggleIcon('Products', 'product', 'web_asset'),
+  new FilterToggleIcon('Personal', 'personal', 'person'),
+  new FilterToggleIcon('Sets', 'sets', 'group_work'),
+  new FilterToggleIcon('Sales', 'sales', 'shopping_cart'),
+  new FilterToggleIcon('Stock', 'stock', 'all_inbox'),
 
 ];
 
-export const filtersCharts: FilterToggle[] = [
-  new FilterToggle('Line', 'line'),
-  new FilterToggle('Bar', 'bar'),
-  new FilterToggle('Radar', 'radar'),
-  new FilterToggle('Pie', 'pie'),
-  new FilterToggle('Doughnut', 'doughnut'),
-  new FilterToggle('Polar Area', 'polarArea'),
-  new FilterToggle('Bubble', 'bubble'),
-  new FilterToggle('Scatter', 'scatter'),
+export const filtersCharts: FilterToggleIcon[] = [
+  new FilterToggleIcon('Line', 'line', 'show_chart'),
+  new FilterToggleIcon('Bar', 'bar', 'bar_chart'),
+  new FilterToggleIcon('Radar', 'radar', 'track_changes'),
+  new FilterToggleIcon('Pie', 'pie', 'pie_chart'),
+  new FilterToggleIcon('Doughnut', 'doughnut', 'donut_small'),
+  new FilterToggleIcon('Polar Area', 'polarArea', 'blur_circular'),
+  new FilterToggleIcon('Bubble', 'bubble', 'bubble_chart'),
+  new FilterToggleIcon('Scatter', 'scatter', 'flip_to_back'),
+];
+
+export const filterIcon: FilterToggleIcon[] = [
+  new FilterToggleIcon('Grid', 'grid', 'grid_on'),
+  new FilterToggleIcon('List', 'list', 'view_list'),
 ];
 

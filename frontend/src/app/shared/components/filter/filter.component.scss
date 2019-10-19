@@ -1,11 +1,10 @@
-:host {
-  max-width: 70%;
-}
 mat-button-toggle-group {
-  min-width: 300px;
-  height: 25px;
+  display: flex;
   align-items: center;
-  overflow-x: auto;
+  justify-content: center;
+  flex-direction: row;
+  flex-flow: row wrap;
+
 }
 
 mat-button-toggle {

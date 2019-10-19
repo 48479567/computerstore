@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { FilterToggle } from 'src/app/shared/models';
+import { FilterToggle, FilterToggleIcon } from 'src/app/shared/models';
 import {
   filtersSources,
-  filtersCharts
+  filtersCharts,
+  filterIcon
 } from '../../../../assets/data';
 import { Observable, of } from 'rxjs';
 
@@ -20,6 +21,9 @@ export class FilterService {
   }
   getFiltersCharts(): Observable<Array<FilterToggle>> {
     return of(filtersCharts);
+  }
+  getFiltersIcon(): Observable<Array<FilterToggleIcon>> {
+    return of(filterIcon);
   }
 }
 
