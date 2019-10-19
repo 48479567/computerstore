@@ -27,7 +27,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  @Input() dataSource: MatTableDataSource<PeriodicElement>;
+  @Input() dataSource: any;
+  data: MatTableDataSource<any>;
 
   displayedColumns: string[] = [];
 
@@ -35,19 +36,20 @@ export class TableComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor() {
-    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
   }
 
   ngOnInit() {
+    this.data = new MatTableDataSource(this.dataSource);
     this.displayedColumns = Object.keys(this.dataSource[0]);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.data.paginator = this.paginator;
+    this.data.sort = this.sort;
+
   }
 
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    this.data.filter = filterValue.trim().toLowerCase();
+    if (this.data.paginator) {
+      this.data.paginator.firstPage();
     }
   }
 

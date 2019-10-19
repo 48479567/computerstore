@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ProductService } from 'src/app/core/services/schema/product.service';
-import { SetService } from 'src/app/core/services/schema/set.service';
 import { FilterService } from 'src/app/core/services/filter/filter.service';
 
-import { ProductSchema, SetSchema, FilterToggle } from 'src/app/shared/models';
+import { ProductSchema, FilterToggle, CategorySchema } from 'src/app/shared/models';
+import { CategoryService } from 'src/app/core/services/schema/category.service';
 
 @Component({
   selector: 'app-result',
@@ -14,19 +14,19 @@ import { ProductSchema, SetSchema, FilterToggle } from 'src/app/shared/models';
 
 export class ResultComponent implements OnInit {
   products: ProductSchema[];
-  sets: SetSchema[];
+  categories: CategorySchema[];
   filtersSources: FilterToggle[];
   filtersCharts: FilterToggle[];
 
   constructor(
     private productService: ProductService,
-    private setService: SetService,
+    private categoryService: CategoryService,
     private filterService: FilterService
   ) { }
 
   ngOnInit() {
     this.getProducts();
-    this.getSets();
+    this.getCategories();
     this.getFiltersSources();
     this.getFiltersCharts();
    }
@@ -36,9 +36,9 @@ export class ResultComponent implements OnInit {
       (products: ProductSchema[]) => this.products = products
     );
   }
-  getSets(): void {
-    this.setService.getSets().subscribe(
-      (sets: SetSchema[]) => { this.sets = sets; console.log(this.sets); },
+  getCategories(): void {
+    this.categoryService.getCategories().subscribe(
+      (categories: CategorySchema[]) => { this.categories = categories; console.log(this.categories); },
       (error) => console.error(error)
     );
   }

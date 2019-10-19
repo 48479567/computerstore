@@ -6,13 +6,11 @@ import { FilterToggle } from '../../models';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
-  @Input() filtersSources: FilterToggle[];
-  @Input() filtersCharts: FilterToggle[];
+  @Input() filtersSources: FilterToggle[] = [];
+  @Input() filtersCharts: FilterToggle[] = [];
   value: string;
 
   ngOnInit() {
-    console.log('filtersSources', this.filtersSources);
-    console.log('filtersCharts', this.filtersCharts);
 
   }
 
