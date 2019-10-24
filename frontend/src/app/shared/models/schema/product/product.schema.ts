@@ -15,14 +15,19 @@ export class ProductCard extends Product {
    }
 }
 
-export class ProductSchema extends Product {
+export class ProductSchema extends ProductCard {
   constructor(
-    public id: number,
     public name: string,
-    public set: string,
-    public mark: string,
     public quantity: number,
+    public investment: number,
+    public gain: number,
+    public mark: string,
+    public image: string,
+    public categoryid: string,
+    public features: { },
+    public createdat: Date,
+    public id?: string,
   ) {
-    super(name, quantity);
+    super(name, quantity, image);
    }
 }

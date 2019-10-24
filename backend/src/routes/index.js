@@ -1,17 +1,23 @@
 const express = require('express')
 const router = express.Router()
 
+const {
+    getCategoryById,
+    createCategory 
+
+} = require('../controllers')
+
 router.get('/users',)
 router.get('/user/:id', )
 router.get('/products', )
 router.get('/product/:id')
-router.get('/categories')
-router.get('/category/:id')
+router.get('/categories',)
+router.get('/category/:id', getCategoryById)
 
 
 router.post('/user')
 router.post('/product')
-router.post('/category')
+router.post('/category', createCategory)
 router.post('/sale')
 
 router.post('/user/:id')

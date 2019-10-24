@@ -17,13 +17,14 @@ export class CategoryCard extends Category {
 
 export class CategorySchema extends CategoryCard {
   constructor(
-    public id: number,
     public name: string,
     public quantity: number,
-    public sales: number,
+    public investment: number,
+    public gain: number,
     public image: string,
     public description?: string,
-    public createdAt?: Date
+    public createdat?: Date,
+    public id?: string,
   ) {
     super(name, quantity, image);
    }
