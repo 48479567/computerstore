@@ -9,18 +9,21 @@ const CategorySchema = new Schema({
   },
   quantity: {
     type: Number,
-    required: true
+    required: true,
+    default: 0
   },
   investment: {
-    type: Number
+    type: Number,
+    default: 0
   },
   gain: {
-    type: Number
+    type: Number,
+    default: 0
   },
   image: {
     type: String
   }
 
-}, { timestamps: { createdAt: 'createat'} })
+}, { timestamps: { createdAt: 'createat', updatedAt: 'updateat'} })
 
 module.exports = mongoose.model('Category', CategorySchema, 'category')

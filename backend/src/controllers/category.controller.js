@@ -1,25 +1,19 @@
-const Category = require('../models')
-const { getResourceById, createResource } = require('../config')
+const { Category } = require('../models')
+const { get, post } = require('../config/http/middlewares')
 
 const getCategoryById = async (req, res) => {
-  try {
-    const { id } = req.params
-    const category = await Category.findById(id)
-    return res.json(category)
-  } catch (error) {
-    return await res.status(404).json({
-      ok: false,
-      error
-    })
-  }
+  return await get.getResourceById(req, res, Category, 404)
+}
+const getCategories = async (req, res) => {
+  return await get.getResources(req, res, Category, 404)
 }
 
-
 const createCategory = async (req, res) => { 
-  return await createResource(req, res, Category, 400)
+  return await post.createResource(req, res, Category, 400)
 }
 
 module.exports = {
   getCategoryById,
+  getCategories,
   createCategory
 }

@@ -12,12 +12,13 @@ app.set('connectdb', process.env.DATABASE_URL || MONGO_URI)
 
 app.use((req, res, next) => { 
   res.header('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Controll-Allow-Methods', 'GET, POST, PUT, DELETE')
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-Width, Content-Type, Accept')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   next()
 })
-app.use(bodyParser.json())
+
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 // app.use(express.static(path.join(__dirname, '/static/frontend')))
 
 // app.get('/*', (req, res) => {

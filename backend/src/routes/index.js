@@ -1,24 +1,25 @@
 const express = require('express')
 const router = express.Router()
 
-const {
-    getCategoryById,
-    createCategory 
+const { category, product, purchase, sale, user } = require('../controllers')
 
-} = require('../controllers')
+router.get('/users', user.getUsers)
+router.get('/user/:id', user.getUserById)
+router.get('/products', product.getProducts)
+router.get('/product/:id', product.getProductById)
+router.get('/categories', category.getCategories)
+router.get('/category/:id', category.getCategoryById)
+router.get('/purchases', purchase.getPurchases)
+router.get('/purchase/:id', purchase.getPurchaseById)
+router.get('/sales', sale.getSales)
+router.get('/sale/:id', sale.getSaleById)
 
-router.get('/users',)
-router.get('/user/:id', )
-router.get('/products', )
-router.get('/product/:id')
-router.get('/categories',)
-router.get('/category/:id', getCategoryById)
 
-
-router.post('/user')
-router.post('/product')
-router.post('/category', createCategory)
-router.post('/sale')
+router.post('/user',)
+router.post('/product', product.createProduct)
+router.post('/category', category.createCategory)
+router.post('/purchase', purchase.createPurchase)
+router.post('/sale', sale.createSale)
 
 router.post('/user/:id')
 
