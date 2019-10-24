@@ -1,0 +1,5 @@
+module.exports = require('./category.model')
+module.exports = require('./product.model')
+module.exports = require('./purchase.model')
+module.exports = require('./sale.model')
+module.exports = require('./user.model')
