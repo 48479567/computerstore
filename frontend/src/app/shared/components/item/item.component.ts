@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { FormDialogComponent } from '../dialog/dialog.component';
-import { TextboxQuestion, DropdownQuestion } from '../../models';
+import { TextboxQuestion, DropdownQuestion, CategorySchemaForm } from '../../models';
 import { FormDialogData } from '../../models/dialog/dialog.model';
 
 @Component({
@@ -11,14 +11,22 @@ import { FormDialogData } from '../../models/dialog/dialog.model';
 })
 export class ItemComponent implements OnInit {
   @Input() item: any;
+  other: CategorySchemaForm[] = [ new CategorySchemaForm('1'), new CategorySchemaForm('1')];
 
   constructor(
     public dialog: MatDialog
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log('item: ', typeof this.item);
+    console.log('other: ', typeof this.other);
+    console.log(this.other);
+    console.log(Object.entries(this.item));
+  }
 
   openFormDialog(item: any): void {
+    const questions = [];
+
     const formDialogRef = this.dialog.open(FormDialogComponent, {
       data: { title: 'Product Dialog', questions: [
         new TextboxQuestion({

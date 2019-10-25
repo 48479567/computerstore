@@ -1,3 +1,5 @@
+import { DropdownFormat } from '../../form/question-dropdown';
+
 export class Product {
   constructor(
     public name: string,
@@ -31,3 +33,20 @@ export class ProductSchema extends ProductCard {
     super(name, quantity, image);
    }
 }
+
+export class ProductSchemaForm {
+  constructor(
+    public name?: string,
+    public quantity?: number,
+    public investment?: number,
+    public gain?: number,
+    public mark?: string,
+    public image?: string,
+    public categoryid?: DropdownFormat,
+    public features?: { },
+    public createdat?: Date,
+    public id?: string,
+  ) { }
+}
+
+

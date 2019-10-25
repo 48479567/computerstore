@@ -29,3 +29,18 @@ export class CategorySchema extends CategoryCard {
     super(name, quantity, image);
    }
 }
+
+
+export class CategorySchemaForm {
+  constructor(
+    public name?: string,
+    public quantity?: number,
+    public investment?: number,
+    public gain?: number,
+    public image?: string,
+    public description?: string,
+    public createdat?: Date,
+    public id?: string,
+  ) {
+  }
+}
