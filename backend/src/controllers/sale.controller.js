@@ -12,8 +12,10 @@ const createSale = async (req, res) => {
   return await post.createResource(req, res, Sale, 400)
 }
 
-module.exports = {
+
+const sale = {
   getSaleById,
   getSales,
   createSale
 }
+module.exports = sale

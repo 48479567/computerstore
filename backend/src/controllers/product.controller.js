@@ -12,8 +12,9 @@ const createProduct = async (req, res) => {
   return await post.createResource(req, res, Product, 400)
 }
 
-module.exports = {
+const product = {
   getProductById,
   getProducts,
   createProduct
 }
+module.exports = product

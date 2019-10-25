@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { CategorySchema } from 'src/app/shared/models';
-import { categories } from '../../mocks/data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
+  categories: CategorySchema[];
+
   getCategories(): Observable<Array<CategorySchema>> {
-    return of(categories);
+    return of(this.categories);
   }
 
   constructor(

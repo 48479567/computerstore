@@ -12,8 +12,10 @@ const createPurchase = async (req, res) => {
   return await post.createResource(req, res, Purchase, 400)
 }
 
-module.exports = {
+
+const purchase = {
   getPurchaseById,
   getPurchases,
   createPurchase
 }
+module.exports = purchase

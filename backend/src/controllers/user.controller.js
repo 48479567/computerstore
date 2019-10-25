@@ -12,8 +12,10 @@ const createUser = async (req, res) => {
   return await post.createResource(req, res, User, 400)
 }
 
-module.exports = {
+
+const user = {
   getUserById,
   getUsers,
   createUser
 }
+module.exports = user

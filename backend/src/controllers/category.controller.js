@@ -12,8 +12,11 @@ const createCategory = async (req, res) => {
   return await post.createResource(req, res, Category, 400)
 }
 
-module.exports = {
+
+const category = {
   getCategoryById,
   getCategories,
   createCategory
 }
+module.exports = category
+
