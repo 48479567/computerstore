@@ -1,13 +1,14 @@
-<h2 mat-dialog-title>{{ data.title }}</h2>
 <mat-dialog-content class="typografic">
-  <app-item
-    [item]="data.content"
-  ></app-item>
   <mat-card>
     <mat-card-content>
-      <app-dynamic-form [questions]="data.questions"></app-dynamic-form>
+      <app-dynamic-form #dynamicForm [questions]="questions"></app-dynamic-form>
     </mat-card-content>
   </mat-card>
+  <app-item
+    [item]="dynamicForm.form.value"
+  ></app-item>
+  <mat-card-actions>
+    <button mat-button [disabled]="!dynamicForm.form.valid" (click)="update(dynamicForm.form.value)">Save</button>
+    <button mat-button (click)="onClose()">Cancel</button>
+  </mat-card-actions>
 </mat-dialog-content>
-
-

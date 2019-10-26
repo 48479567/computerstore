@@ -15,6 +15,7 @@ export class CategoryCard extends Category {
    }
 }
 
+
 export class CategorySchema extends CategoryCard {
   constructor(
     public name: string,
@@ -39,7 +40,7 @@ export class CategorySchemaForm {
     public gain?: number,
     public image?: string,
     public description?: string,
-    public createdat?: Date,
+    public createdat?: Date | string,
     public id?: string,
   ) {
   }

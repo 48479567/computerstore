@@ -24,6 +24,6 @@ const CategorySchema = new Schema({
     type: String
   }
 
-}, { timestamps: { createdAt: 'createat', updatedAt: 'updateat'} })
+}, { timestamps: { createdAt: 'createdat', updatedAt: 'updatedat'} })
 
 module.exports = mongoose.model('Category', CategorySchema, 'category')

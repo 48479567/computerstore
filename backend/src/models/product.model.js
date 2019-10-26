@@ -9,13 +9,16 @@ const ProductSchema = new Schema({
   },
   quantity: {
     type: Number,
-    required: true
+    required: true,
+    default: 0
   },
   investment: {
-    type: Number
+    type: Number,
+    default: 0
   },
   gain: {
-    type: Number
+    type: Number,
+    default: 0
   },
   mark: {
     type: String,
@@ -32,7 +35,7 @@ const ProductSchema = new Schema({
     type: Schema.Types.Mixed
   }
 
-}, { timestamps: { createdAt: 'createat' } })
+}, { timestamps: { createdAt: 'createdat' } })
 
 
 
