@@ -9,6 +9,7 @@ import { FormDialogComponent } from '../dialog/dialog.component';
 })
 export class ItemComponent implements OnInit {
   @Input() item: any;
+  @Input() showActions = true;
 
   constructor(
     public dialog: MatDialog

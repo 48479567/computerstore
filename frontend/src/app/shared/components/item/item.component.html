@@ -8,7 +8,7 @@
   <mat-card-content>
     <p>{{ item.quantity }} in stock</p>
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-actions *ngIf="showActions">
     <button mat-button (click)="openFormDialog()">ENTER</button>
     <button mat-button>CANCEL</button>
   </mat-card-actions>
