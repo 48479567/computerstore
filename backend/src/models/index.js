@@ -11,5 +11,4 @@ const Model = {
   Sale,
   User
 }
-
 module.exports = Model

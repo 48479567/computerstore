@@ -1,14 +1,5 @@
 import { QuestionBase, TextboxQuestion, CategorySchemaForm } from 'src/app/shared/models';
 
-export const categoryQuestions: QuestionBase<any>[] = [
-  new TextboxQuestion({
-    key: 'name',
-    label: 'Product Name',
-    value: ''
-  })
-];
-
-
 export const setCategoryQuestions = (category: CategorySchemaForm) => {
   const entriesCategory = Object.entries(category);
   const questions = entriesCategory.map(
@@ -23,5 +14,6 @@ export const setCategoryQuestions = (category: CategorySchemaForm) => {
     });
   return questions;
 };
+
 
 

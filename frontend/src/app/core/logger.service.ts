@@ -10,7 +10,7 @@ export class LoggerService {
 
   log(msg: string): void {
     console.log(msg);
-    this.snackbar.open(msg, '👌', {
+    this.snackbar.open(msg, '✔️', {
       duration: 5000,
     });
   }

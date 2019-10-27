@@ -14,7 +14,6 @@ router.get('/purchase/:id', purchase.getPurchaseById)
 router.get('/sales', sale.getSales)
 router.get('/sale/:id', sale.getSaleById)
 
-
 router.post('/user',)
 router.post('/product', product.createProduct)
 router.post('/category', category.createCategory)
