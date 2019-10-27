@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductSchema } from 'src/app/shared/models/schema/product/product.schema';
 import { ProductService } from 'src/app/core/services/schema/product.service';
-import { ProductHttpService } from 'src/app/core/http/schema/product/product.http';
+import { ProductHttpService } from 'src/app/core/http/schema/product/product.http.service';
 
 
 @Component({

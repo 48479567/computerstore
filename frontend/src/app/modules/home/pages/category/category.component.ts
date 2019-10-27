@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategorySchema, CategorySchemaForm } from 'src/app/shared/models/schema/category/category.schema';
-import { CategoryHttpService } from 'src/app/core/http/schema/category/category.http';
+import { CategoryHttpService } from 'src/app/core/http/schema/category/category.http.service';
 import { CategoryService } from 'src/app/core/services/schema/category.service';
 
 @Component({

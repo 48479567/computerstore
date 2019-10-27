@@ -27,7 +27,8 @@ export class ProductSchema extends ProductCard {
     public image: string,
     public categoryid: string,
     public features: { },
-    public createdat: Date,
+    public createdat: number | string,
+    public updatedat?: number | string,
     public id?: string,
   ) {
     super(name, quantity, image);
@@ -44,7 +45,8 @@ export class ProductSchemaForm {
     public image?: string,
     public categoryid?: DropdownFormat,
     public features?: { },
-    public createdat?: Date,
+    public createdat?: number | string,
+    public updatedat?: number | string,
     public id?: string,
   ) { }
 }
