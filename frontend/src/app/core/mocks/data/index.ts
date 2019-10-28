@@ -1,3 +1,3 @@
-export { products } from './schema/product';
-export { categories } from './schema/category';
+// export { products } from './schema/product';
+// export { categories } from './schema/category';
 

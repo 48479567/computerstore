@@ -6,11 +6,11 @@ import { QuestionService } from 'src/app/core/services/form/question.service';
 
 @Component({
   selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
+  templateUrl: './dialog-create-resource.component.html',
   styleUrls: ['./dialog.component.scss']
 })
 
-export class DialogComponent implements OnInit {
+export class DialogCreateResourceComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) { }

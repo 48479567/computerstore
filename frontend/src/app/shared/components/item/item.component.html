@@ -4,12 +4,11 @@
     <mat-card-title>{{ item.name }}</mat-card-title>
     <mat-card-subtitle>{{ item.investment }}</mat-card-subtitle>
   </mat-card-header>
-    <img [src]="item.image" width="300" height="150" alt="Item Image" />
+  <img mat-card-image [src]="item.image" height="250px" alt="Item Image" />
   <mat-card-content>
-    <p>{{ item.quantity }} in stock</p>
+      <p>{{ item.quantity }} in stock</p>
   </mat-card-content>
   <mat-card-actions *ngIf="showActions">
     <button mat-button (click)="openFormDialog()">ENTER</button>
-    <button mat-button>CANCEL</button>
   </mat-card-actions>
 </mat-card>

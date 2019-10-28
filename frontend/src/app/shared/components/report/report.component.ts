@@ -21,16 +21,10 @@ export class ReportComponent implements OnInit {
 
   public barChartLegend = true;
 
-  public barChartData = [];
-
   constructor() { }
 
   ngOnInit() {
     this.type = 'bar';
-    this.barChartData = [
-      { data: this.data.map(d => d.quantity) , label: 'Stock' },
-      { data: this.data.map(d => d.investment), label: 'Sale' }
-    ];
   }
 
 }

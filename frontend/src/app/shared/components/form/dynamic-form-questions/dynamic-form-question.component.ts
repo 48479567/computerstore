@@ -13,7 +13,5 @@ export class DynamicFormQuestionComponent {
   @Input() question: QuestionBase<any>;
   @Input() form: FormGroup;
 
-
-
 }
 

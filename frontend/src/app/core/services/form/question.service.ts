@@ -53,7 +53,7 @@ export class QuestionService {
         label: sch,
         value: schema[sch],
         type: typeof schema[sch],
-        required: true
+        required: Math.random() > 0.5 ? true : false
       }));
     }
     return of(questions);

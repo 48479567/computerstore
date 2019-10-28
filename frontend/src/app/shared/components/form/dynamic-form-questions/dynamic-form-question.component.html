@@ -1,8 +1,12 @@
 <div [formGroup]="form">
   <div [ngSwitch]="question.controlType">
 
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      [hideRequiredMarker]="true">
+
       <mat-label>{{ question.label }}</mat-label>
+
       <input
       *ngSwitchCase="'textbox'"
         matInput
@@ -11,8 +15,8 @@
         aria-describedby="enter"
         autocomplete="off"
         [id]="question.key"
-        [type]="question.type"
-        />
+        [type]="question.type" />
+
       <mat-select *ngSwitchCase="'dropdown'"
         [formControlName]="question.key"
         [placeholder]="question.label"
@@ -21,11 +25,14 @@
           {{ opt.key }}
         </mat-option>
       </mat-select>
-      <mat-error>
+
+      <mat-error *ngIf="question.required">
         {{ question.label }} is required!!
       </mat-error>
+
     </mat-form-field>
 
   </div>
 </div>
+
 

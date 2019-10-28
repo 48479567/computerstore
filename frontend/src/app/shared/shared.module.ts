@@ -16,11 +16,11 @@ import {
   ReportComponent,
   ChartComponent,
   FilterComponent,
-  DialogComponent,
+  DialogCreateResourceComponent,
   FormDialogComponent,
   TableComponent,
   ItemComponent,
-  ContentComponent
+  ContentComponent,
 
 } from './components';
 
@@ -36,7 +36,7 @@ const COMPONENTS = [
   ReportComponent,
   ChartComponent,
   FilterComponent,
-  DialogComponent,
+  DialogCreateResourceComponent,
   FormDialogComponent,
   TableComponent,
   ItemComponent,
@@ -45,7 +45,7 @@ const COMPONENTS = [
 ];
 
 const ENTRY_COMPONENTS = [
-  DialogComponent,
+  DialogCreateResourceComponent,
   FormDialogComponent,
 
 ];
