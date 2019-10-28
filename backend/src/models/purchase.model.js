@@ -15,7 +15,7 @@ const PurchaseSchema = new Schema({
       type: Number,
       required: true
     },
-    investment: {
+    investmentprice: {
       type: Number,
       required: true
     }

@@ -15,7 +15,7 @@ const SaleSchema = new Schema({
       type: Number,
       required: true
     },
-    gain: {
+    saleprice: {
       type: Number,
       required: true
     }

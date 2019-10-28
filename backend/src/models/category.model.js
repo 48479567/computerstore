@@ -16,7 +16,7 @@ const CategorySchema = new Schema({
     type: Number,
     default: 0
   },
-  gain: {
+  sale: {
     type: Number,
     default: 0
   },

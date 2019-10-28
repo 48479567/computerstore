@@ -16,7 +16,11 @@ const ProductSchema = new Schema({
     type: Number,
     default: 0
   },
-  gain: {
+  price: {
+    type: Number,
+    default: 0
+  },
+  sale: {
     type: Number,
     default: 0
   },
