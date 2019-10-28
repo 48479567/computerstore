@@ -12,7 +12,7 @@
         autocomplete="off"
         [id]="question.key"
         [type]="question.type"
-        required />
+        />
       <mat-select *ngSwitchCase="'dropdown'"
         [formControlName]="question.key"
         [placeholder]="question.label"
@@ -21,7 +21,7 @@
           {{ opt.key }}
         </mat-option>
       </mat-select>
-      <mat-error *ngIf="question.required">
+      <mat-error>
         {{ question.label }} is required!!
       </mat-error>
     </mat-form-field>

@@ -13,7 +13,6 @@ export class DynamicFormComponent implements OnInit {
   @Input() questions: QuestionBase<any>[] = [];
 
   form: FormGroup;
-  payLoad = '';
 
   constructor(
     private qcs: QuestionControlService,

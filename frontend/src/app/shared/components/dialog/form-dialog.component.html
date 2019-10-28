@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>Item Details</h2>
 <mat-dialog-content class="mat-typography">
-  <app-dynamic-form #dynamicForm [questions]="questions"></app-dynamic-form>
+  <app-dynamic-form #dynamicForm [questions]="data.questions"></app-dynamic-form>
   <app-item
   [item]="dynamicForm.form.value"
   [showActions]="false"

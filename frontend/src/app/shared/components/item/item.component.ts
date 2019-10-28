@@ -10,19 +10,20 @@ import { FormDialogComponent } from '../dialog/dialog.component';
 export class ItemComponent implements OnInit {
   @Input() item: any;
   @Input() showActions = true;
+  itemArray: [string, string][];
 
   constructor(
     public dialog: MatDialog
   ) { }
 
   ngOnInit() {
-    console.log('itemfjasjf', this.item);
   }
 
   openFormDialog(): void {
+    this.itemArray = Object.entries(this.item);
 
     const formDialogRef = this.dialog.open(FormDialogComponent, {
-      data: { content: this.item }
+      data: { content: this.item, questions: this.itemArray }
     });
   }
 }

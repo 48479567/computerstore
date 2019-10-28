@@ -7,6 +7,12 @@ import { CommonModule } from '@angular/common';
 import {
   DynamicFormComponent,
   DynamicFormQuestionComponent,
+  DynamicFormAuthComponent,
+  DynamicFormAuthQuestionComponent,
+  EmailFieldComponent,
+  PasswordFieldComponent,
+  DynamicFormObjectComponent,
+  DynamicFormObjectQuestionComponent,
   ReportComponent,
   ChartComponent,
   FilterComponent,
@@ -14,13 +20,19 @@ import {
   FormDialogComponent,
   TableComponent,
   ItemComponent,
-  ContentComponent,
+  ContentComponent
 
 } from './components';
 
 const COMPONENTS = [
   DynamicFormComponent,
   DynamicFormQuestionComponent,
+  DynamicFormAuthComponent,
+  DynamicFormAuthQuestionComponent,
+  EmailFieldComponent,
+  PasswordFieldComponent,
+  DynamicFormObjectComponent,
+  DynamicFormObjectQuestionComponent,
   ReportComponent,
   ChartComponent,
   FilterComponent,
