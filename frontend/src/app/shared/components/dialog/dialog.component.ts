@@ -1,8 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FormDialogData } from '../../models/dialog/dialog.model';
-import { QuestionControlService } from 'src/app/core/services/form/question-control.service';
-import { FormGroup } from '@angular/forms';
+import { QuestionBase } from '../../models';
 import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
 
 @Component({
@@ -12,29 +11,18 @@ import { ObjectRefService } from 'src/app/core/services/schema/object-ref.servic
 })
 
 export class DialogCreateResourceComponent implements OnInit {
-  questions: FormGroup;
-
   constructor(
     public dialogRef: MatDialogRef<FormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: FormDialogData,
-    private questionControlService: QuestionControlService,
-    private objectRef: ObjectRefService
   ) { }
-
   ngOnInit() {
     this.getQuestions();
-    console.log(this.data);
   }
-
   getQuestions(): void {
-    this.questions = this.questionControlService.toFormGroup(this.data.content.getQuestions(this.objectRef.objectRef));
-    console.log(this.questions);
   }
-
   create(value: any): void {
     console.log(value);
   }
-
 }
 
 @Component({
@@ -43,14 +31,21 @@ export class DialogCreateResourceComponent implements OnInit {
   styleUrls: ['./dialog.component.scss']
 })
 export class FormDialogComponent implements OnInit {
+  questions: QuestionBase<any>[];
+
   constructor(
     public dialogRef: MatDialogRef<FormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: FormDialogData,
+    private ors: ObjectRefService
   ) { }
 
   ngOnInit() {
+    this.getQuestions();
   }
 
+  getQuestions() {
+    this.questions = this.ors.formatQuestion(this.data.content, this.ors.objectRef);
+  }
 
   onClose(): void {
     this.dialogRef.close();

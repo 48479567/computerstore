@@ -19,3 +19,4 @@ export class FormDialogData extends DialogData {
     super(title, content, actions);
   }
 }
+

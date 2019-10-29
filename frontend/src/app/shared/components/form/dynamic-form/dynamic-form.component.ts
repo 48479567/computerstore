@@ -24,7 +24,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.router.navigateByUrl('/home/product');
+    this.router.navigateByUrl('/home/category');
   }
 
 }

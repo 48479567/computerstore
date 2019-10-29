@@ -10,9 +10,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'home',
-  loadChildren: () => import('./modules/home/home.module')
-                        .then(mod => mod.HomeModule) },
-  { path: '', redirectTo: 'home/product', pathMatch: 'full' },
+    loadChildren: () => import('./modules/home/home.module')
+                          .then(mod => mod.HomeModule) },
+  { path: '', redirectTo: 'home/category', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 

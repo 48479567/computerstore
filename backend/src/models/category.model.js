@@ -22,6 +22,9 @@ const CategorySchema = new Schema({
   },
   image: {
     type: String
+  },
+  description: {
+    type: String
   }
 
 }, { timestamps: { createdAt: 'createdat', updatedAt: 'updatedat'} })

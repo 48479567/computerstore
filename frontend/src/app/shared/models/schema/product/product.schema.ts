@@ -1,6 +1,7 @@
-import { DropdownFormat, DropdownQuestion } from '../../form/question-dropdown';
+import { DropdownQuestion } from '../../form/question-dropdown';
 import { QuestionBase, SelectOption } from '../../form/question-base';
 import { TextboxQuestion } from '../../form/question-textbox';
+import { ObjectRef } from '../objectref/objectref.schema';
 
 export class Product {
   constructor(
@@ -47,74 +48,88 @@ export class ProductSchemaForm {
     public sale?: number,
     public mark?: string,
     public image?: string,
-    public categoryid?: SelectOption,
-    public features?: { },
+    public categoryid?: string,
+    public features?: any,
     public createdat?: number | string,
     public updatedat?: number | string,
     public id?: string,
-  ) { }
+  ) {
+    this.name = name ? name : '';
+    this.quantity = quantity ? quantity : 0;
+    this.investment = investment ? investment : 0;
+    this.price = price ? price : 0;
+    this.sale = sale ? sale : 0;
+    this.mark = mark ? mark : '';
+    this.image = image ? image : 'https://i.imgur.com/dFT6YIC.png?2';
+    this.categoryid = categoryid ? categoryid : '';
+    this.features = features ? features : {};
 
-  getQuestions(categoryIdInject: SelectOption[]): QuestionBase<any>[] {
-    return [
-      new TextboxQuestion({
-        type: 'string',
-        label: 'Product Name',
-        value: this.name,
-        required: true,
-        key: 'name'
-      }),
-      new TextboxQuestion({
-        type: 'number',
-        label: 'Quantity',
-        value: this.quantity,
-        required: true,
-        key: 'quantity'
-      }),
-      new TextboxQuestion({
-        type: 'number',
-        label: 'Investment',
-        value: this.investment,
-        required: true,
-        key: 'investment'
-      }),
-      new TextboxQuestion({
-        type: 'number',
-        label: 'Price',
-        value: this.price,
-        required: true,
-        key: 'price'
-      }),
-      new TextboxQuestion({
-        type: 'number',
-        label: 'Sale',
-        value: this.sale,
-        required: true,
-        key: 'sale'
-      }),
-      new TextboxQuestion({
-        type: 'string',
-        label: 'Mark',
-        value: this.mark,
-        required: true,
-        key: 'mark'
-      }),
-      new TextboxQuestion({
-        type: 'string',
-        label: 'Image',
-        value: this.image,
-        required: true,
-        key: 'image'
-      }),
-      new DropdownQuestion({
-        type: 'string',
-        label: 'Category',
-        value: '',
-        required: true,
-        key: 'categoryid',
-        options: categoryIdInject
-      })
-    ];
   }
+
 }
+
+export const formatQuestionProduct = (item: any, objectRef: ObjectRef): QuestionBase<any>[] => {
+  return [
+    new TextboxQuestion({
+      type: 'string',
+      label: 'Product Name',
+      value: item.name,
+      required: true,
+      key: 'name'
+    }),
+    new TextboxQuestion({
+      type: 'number',
+      label: 'Quantity',
+      value: item.quantity,
+      required: true,
+      key: 'quantity'
+    }),
+    new TextboxQuestion({
+      type: 'number',
+      label: 'Investment',
+      value: item.investment,
+      required: true,
+      key: 'investment'
+    }),
+    new TextboxQuestion({
+      type: 'number',
+      label: 'Price',
+      value: item.price,
+      required: true,
+      key: 'price'
+    }),
+    new TextboxQuestion({
+      type: 'number',
+      label: 'Sale',
+      value: item.sale,
+      required: true,
+      key: 'sale'
+    }),
+    new TextboxQuestion({
+      type: 'string',
+      label: 'Mark',
+      value: item.mark,
+      required: true,
+      key: 'mark'
+    }),
+    new TextboxQuestion({
+      type: 'string',
+      label: 'Image',
+      value: item.image,
+      required: true,
+      key: 'image'
+    }),
+    new DropdownQuestion({
+      type: 'string',
+      label: 'Category',
+      value: '',
+      required: true,
+      key: 'categoryid',
+      options: objectRef.categoryid
+    })
+  ];
+};
+
+
 
 

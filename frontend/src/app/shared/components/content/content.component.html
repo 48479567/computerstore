@@ -7,9 +7,9 @@
   *ngIf="filter.value === 'list'; else cardView"
   [dataSource]="sources"></app-table>
 <ng-template #cardView>
-  <app-item-create
+  <app-item
     [item]="itemCreate"
-  ></app-item-create>
+  ></app-item>
   <app-item
     *ngFor="let source of sources"
     [item]="source"

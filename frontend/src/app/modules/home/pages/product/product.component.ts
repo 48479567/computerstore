@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductSchema, ProductSchemaForm } from 'src/app/shared/models/schema/product/product.schema';
+import { ProductSchemaForm, formatQuestionProduct } from 'src/app/shared/models/schema/product/product.schema';
 import { ProductService } from 'src/app/core/services/schema/product.service';
 import { ProductHttpService } from 'src/app/core/http/schema/product/product.http.service';
+import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
 
 @Component({
   selector: 'app-product',
@@ -10,16 +11,18 @@ import { ProductHttpService } from 'src/app/core/http/schema/product/product.htt
 })
 
 export class ProductComponent implements OnInit {
-  products: ProductSchema[] = [];
-  productCreate: ProductSchemaForm = new ProductSchemaForm('', 0, 0, 0, 0, '', 'https://i.imgur.com/AmTeDvt.jpg', null, null );
+  products: ProductSchemaForm[] = [];
+  productCreate: ProductSchemaForm = new ProductSchemaForm();
 
   constructor(
     private productService: ProductService,
-    private productHttp: ProductHttpService
+    private productHttp: ProductHttpService,
+    private objectRefService: ObjectRefService
   ) { }
 
   ngOnInit() {
     this.getProducts();
+    this.objectRefService.formatQuestion = formatQuestionProduct;
   }
 
   getProducts(): any {
@@ -28,12 +31,7 @@ export class ProductComponent implements OnInit {
     }
 
     this.productHttp.getProducts().subscribe(
-      (products: ProductSchema[]) => {
-        this.products = products;
-      }
-    );
+      (products: ProductSchemaForm[]) => this.products = products);
   }
-
-
 
 }

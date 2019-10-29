@@ -1,7 +1,18 @@
 import { Injectable } from '@angular/core';
-import { SelectOption } from 'src/app/shared/models/form/question-base';
+import { ObjectRef } from 'src/app/shared/models/schema/objectref/objectref.schema';
 
 @Injectable({ providedIn: 'root' })
 export class ObjectRefService {
-  objectRef: SelectOption[];
+  objectRef: ObjectRef = {
+    categoryid: [],
+    productid: [],
+    userid: []
+  };
+  formatQuestion: any;
+
+
+  getObjectRef(resource: any[], selector: string) {
+    this.objectRef[selector] = resource.map(r => ({ key: r.name, value: r._id }));
+  }
+
 }

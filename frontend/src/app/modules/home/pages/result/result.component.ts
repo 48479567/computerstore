@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/core/services/schema/product.service';
 import { FilterService } from 'src/app/core/services/filter/filter.service';
 
-import { ProductSchema, FilterToggle, CategorySchema } from 'src/app/shared/models';
+import { ProductSchemaForm, FilterToggle, CategorySchemaForm } from 'src/app/shared/models';
 import { CategoryService } from 'src/app/core/services/schema/category.service';
 import { ProductHttpService } from 'src/app/core/http/schema/product/product.http.service';
 import { CategoryHttpService } from 'src/app/core/http/schema/category/category.http.service';
@@ -15,8 +15,8 @@ import { CategoryHttpService } from 'src/app/core/http/schema/category/category.
 })
 
 export class ResultComponent implements OnInit {
-  products: ProductSchema[];
-  categories: CategorySchema[];
+  products: ProductSchemaForm[];
+  categories: CategorySchemaForm[];
   filtersSources: FilterToggle[];
   filtersCharts: FilterToggle[];
   categoryChart: { data: number[], label: string }[];
@@ -43,7 +43,7 @@ export class ResultComponent implements OnInit {
       return;
     }
     this.productHttpService.getProducts().subscribe(
-      (products: ProductSchema[]) => {
+      (products: ProductSchemaForm[]) => {
         this.products = products;
         this.productChart = this.getChartData(products);
       }
@@ -57,7 +57,7 @@ export class ResultComponent implements OnInit {
       return;
     }
     this.categoryHttpService.getCategories().subscribe(
-      (categories: CategorySchema[]) => {
+      (categories: CategorySchemaForm[]) => {
         this.categories = categories;
         this.categoryChart = this.getChartData(categories);
       }

@@ -3,28 +3,39 @@
 
     <mat-form-field
       appearance="outline"
-      [hideRequiredMarker]="true">
+      [hideRequiredMarker]="question.required">
 
       <mat-label>{{ question.label }}</mat-label>
 
-      <input
-      *ngSwitchCase="'textbox'"
+      <input *ngSwitchCase="'textbox'"
         matInput
         [placeholder]="question.label"
         [formControlName]="question.key"
         aria-describedby="enter"
         autocomplete="off"
+        [value]="question.value"
         [id]="question.key"
-        [type]="question.type" />
+        [type]="question.type"
+        [required]="question.required" />
 
       <mat-select *ngSwitchCase="'dropdown'"
         [formControlName]="question.key"
         [placeholder]="question.label"
-        [id]="question.key">
+        [id]="question.key"
+        [required]="question.required">
         <mat-option *ngFor="let opt of question.options" [value]="opt.value">
           {{ opt.key }}
         </mat-option>
       </mat-select>
+
+      <textarea *ngSwitchCase="'textarea'"
+        matInput
+        [placeholder]="question.label"
+        [formControlName]="question.key"
+        [id]="question.key"
+        [required]="question.required"
+        [value]="question.value"
+      ></textarea>
 
       <mat-error *ngIf="question.required">
         {{ question.label }} is required!!
