@@ -1,7 +1,6 @@
 import { DropdownFormat, DropdownQuestion } from '../../form/question-dropdown';
 import { QuestionBase, SelectOption } from '../../form/question-base';
 import { TextboxQuestion } from '../../form/question-textbox';
-import { CategoryService } from 'src/app/core/services/schema/category.service';
 
 export class Product {
   constructor(

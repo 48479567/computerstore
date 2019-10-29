@@ -1,4 +1,4 @@
-import { QuestionBase } from '../form/question-base';
+import { QuestionBase, SelectOption } from '../form/question-base';
 
 export class DialogData {
   constructor(
@@ -9,12 +9,13 @@ export class DialogData {
 }
 
 export class FormDialogData extends DialogData {
-   constructor(
-     public title: any,
-     public content: any,
-     public actions: any,
-     public questions: QuestionBase<any>[]
-   ) {
-     super(title, content, actions);
-   }
+  constructor(
+    public title: any,
+    public content: any,
+    public actions: any,
+    public questions: QuestionBase<any>[],
+    public refObject: SelectOption[] | Array<SelectOption[]>
+  ) {
+    super(title, content, actions);
+  }
 }

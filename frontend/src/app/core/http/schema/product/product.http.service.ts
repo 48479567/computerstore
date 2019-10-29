@@ -21,9 +21,11 @@ export class ProductHttpService {
       .pipe(
         tap((products: ProductSchema[]) => {
           this.productService.products = products;
+          this.productService.getFormRefProducts(products);
           this.logger.log(`Inserted ${products.length} product(s)`);
         })
       );
   }
+
 }
 

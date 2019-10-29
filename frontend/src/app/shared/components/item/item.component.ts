@@ -12,6 +12,7 @@ import { QuestionBase } from '../../models';
 export class ItemComponent implements OnInit {
   @Input() item: any;
   @Input() showActions = true;
+
   questions: QuestionBase<any>[];
 
   // itemArray: [string, string][];

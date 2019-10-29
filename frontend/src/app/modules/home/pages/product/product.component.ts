@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductSchema } from 'src/app/shared/models/schema/product/product.schema';
+import { ProductSchema, ProductSchemaForm } from 'src/app/shared/models/schema/product/product.schema';
 import { ProductService } from 'src/app/core/services/schema/product.service';
 import { ProductHttpService } from 'src/app/core/http/schema/product/product.http.service';
-
 
 @Component({
   selector: 'app-product',
@@ -12,6 +11,7 @@ import { ProductHttpService } from 'src/app/core/http/schema/product/product.htt
 
 export class ProductComponent implements OnInit {
   products: ProductSchema[] = [];
+  productCreate: ProductSchemaForm = new ProductSchemaForm('', 0, 0, 0, 0, '', 'https://i.imgur.com/AmTeDvt.jpg', null, null );
 
   constructor(
     private productService: ProductService,
@@ -28,9 +28,12 @@ export class ProductComponent implements OnInit {
     }
 
     this.productHttp.getProducts().subscribe(
-      (products: ProductSchema[]) => this.products = products
+      (products: ProductSchema[]) => {
+        this.products = products;
+      }
     );
   }
+
 
 
 }

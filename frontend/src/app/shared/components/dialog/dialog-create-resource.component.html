@@ -1,8 +1,17 @@
-<h2 mat-dialog-title>{{ data.title }}</h2>
+<h2 mat-dialog-title>Create Resource</h2>
 <mat-dialog-content class="mat-typography">
-  {{ data.content }}
+  <app-dynamic-form #dynamicForm [questions]="questions"></app-dynamic-form>
+  <app-item-create [item]="dynamicForm.form.value" [showActions]="false"></app-item-create>
 </mat-dialog-content>
-<mat-dialog-actions>
-  {{ data.content }}
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    [disabled]="!dynamicForm.form.valid"
+    click="create(dynamicForm.form.value)">Create</button>
+  <button
+    mat-button
+    [disabled]="!dynamicForm.form.valid"
+    mat-dialog-close>Cancel</button>
 </mat-dialog-actions>
+
 

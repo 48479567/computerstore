@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { DialogData, QuestionBase } from '../../models';
 import { FormDialogData } from '../../models/dialog/dialog.model';
-import { QuestionService } from 'src/app/core/services/form/question.service';
+import { QuestionControlService } from 'src/app/core/services/form/question-control.service';
+import { FormGroup } from '@angular/forms';
+import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
 
 @Component({
   selector: 'app-dialog',
@@ -11,11 +12,28 @@ import { QuestionService } from 'src/app/core/services/form/question.service';
 })
 
 export class DialogCreateResourceComponent implements OnInit {
+  questions: FormGroup;
+
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    public dialogRef: MatDialogRef<FormDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: FormDialogData,
+    private questionControlService: QuestionControlService,
+    private objectRef: ObjectRefService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getQuestions();
+    console.log(this.data);
+  }
+
+  getQuestions(): void {
+    this.questions = this.questionControlService.toFormGroup(this.data.content.getQuestions(this.objectRef.objectRef));
+    console.log(this.questions);
+  }
+
+  create(value: any): void {
+    console.log(value);
+  }
 
 }
 
