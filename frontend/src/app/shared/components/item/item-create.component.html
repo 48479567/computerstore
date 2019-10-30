@@ -7,8 +7,11 @@
   <img mat-card-image [src]="item.image" height="250px" alt="Item Image" />
   <mat-card-content>
       <p>{{ item.quantity }} in stock</p>
+      <div class="word-wrap">{{ item.description ? item.description : '' }}</div>
   </mat-card-content>
   <mat-card-actions *ngIf="showActions">
-    <button mat-button (click)="openFormDialog()">ENTER</button>
+    <button mat-button (click)="openFormDialog()">ADD</button>
   </mat-card-actions>
 </mat-card>
+
+

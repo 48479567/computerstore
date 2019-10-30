@@ -19,12 +19,23 @@ export class ProductHttpService {
   ) { }
 
   getProducts(): Observable<Array<ProductSchemaForm>> {
-    return this.http.get<Array<ProductSchemaForm>>(`${URL}/products`)
+    return this.http.get<Array<ProductSchemaForm>>(`${URL}/product`)
       .pipe(
         tap((products: ProductSchemaForm[]) => {
           this.productService.products = products;
           this.objRefService.getObjectRef(products, 'productid');
-          this.logger.log(`Inserted ${products.length} product(s)`);
+          this.logger.log(`Inserted ${products.length} product(s)`, 'bg-primary');
+        })
+      );
+  }
+
+  createItem(product: any): Observable<ProductSchemaForm> {
+    return this.http.post<ProductSchemaForm>(`${URL}/product`, product)
+      .pipe(
+        tap((newProduct: any) => {
+          this.logger.log(`Insert product with _id: ${newProduct._id}.`, 'bg-success');
+          this.productService.products.push(newProduct);
+          this.objRefService.objectRef.productid.push({ key: newProduct.name, value: newProduct._id });
         })
       );
   }

@@ -122,7 +122,7 @@ export const formatQuestionProduct = (item: any, objectRef: ObjectRef): Question
     new DropdownQuestion({
       type: 'string',
       label: 'Category',
-      value: '',
+      value: item.categoryid,
       required: true,
       key: 'categoryid',
       options: objectRef.categoryid

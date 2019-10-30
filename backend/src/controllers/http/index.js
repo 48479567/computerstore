@@ -1,5 +1,5 @@
-const { getResourceById, getResources } = require('./get.middleware.http')
-const { createResource } = require('./post.middleware.http')
+const { getResourceById, getResources } = require('./get.http')
+const { createResource } = require('./post.http')
 
 const HttpRequest = {
   get: {

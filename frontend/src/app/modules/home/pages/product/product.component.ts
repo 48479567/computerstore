@@ -23,6 +23,8 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.getProducts();
     this.objectRefService.formatQuestion = formatQuestionProduct;
+    this.objectRefService.selectSchema.http = this.productHttp;
+    this.objectRefService.selectSchema.service = this.productService;
   }
 
   getProducts(): any {

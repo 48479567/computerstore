@@ -22,6 +22,8 @@ export class CategoryComponent implements OnInit {
   ngOnInit() {
     this.getCategories();
     this.objectRefService.formatQuestion = formatQuestionCategory;
+    this.objectRefService.selectSchema.http = this.categoryHttp;
+    this.objectRefService.selectSchema.service = this.categoryService;
 
   }
 

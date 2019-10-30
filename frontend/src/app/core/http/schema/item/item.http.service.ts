@@ -10,7 +10,7 @@ import { LoggerService } from 'src/app/core/logger.service';
 import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
 
 @Injectable({providedIn: 'root'})
-export class CategoryHttpService {
+export class ItemHttpService {
   constructor(
     private http: HttpClient,
     private categoryService: CategoryService,
@@ -23,21 +23,10 @@ export class CategoryHttpService {
     return this.http.get<Array<CategorySchemaForm>>(`${URL}/category`)
       .pipe(
         tap((categories: CategorySchemaForm[]) => {
-          this.logger.log(`Insert ${categories.length} categories.`, 'bg-primary');
+          this.logger.log(`Insert ${categories.length} categories.`);
           this.objRefService.getObjectRef(categories, 'categoryid');
           this.categoryService.categories = categories;
         }),
-      );
-  }
-
-  createItem(category: any): Observable<CategorySchemaForm> {
-    return this.http.post<CategorySchemaForm>(`${URL}/category`, category)
-      .pipe(
-        tap((newCategory: any) => {
-          this.logger.log(`Insert category with _id: ${newCategory._id}.`, 'bg-success');
-          this.categoryService.categories.push(newCategory);
-          this.objRefService.objectRef.categoryid.push( { key: newCategory.name, value: newCategory._id });
-        })
       );
   }
 }

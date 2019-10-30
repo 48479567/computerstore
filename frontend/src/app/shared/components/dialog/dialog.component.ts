@@ -11,17 +11,28 @@ import { ObjectRefService } from 'src/app/core/services/schema/object-ref.servic
 })
 
 export class DialogCreateResourceComponent implements OnInit {
+  questions: QuestionBase<any>[];
+
   constructor(
     public dialogRef: MatDialogRef<FormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: FormDialogData,
+    private ors: ObjectRefService
   ) { }
+
   ngOnInit() {
     this.getQuestions();
   }
-  getQuestions(): void {
+
+  getQuestions() {
+    this.questions = this.ors.formatQuestion(this.data.content, this.ors.objectRef);
   }
-  create(value: any): void {
-    console.log(value);
+
+  onClose(): void {
+    this.dialogRef.close();
+  }
+
+  createItem(value: any): void {
+    this.ors.selectSchema.http.createItem(value).subscribe();
   }
 }
 
@@ -51,8 +62,9 @@ export class FormDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  update(value: any): void {
-    console.log(value);
+  updateItem(value: any): void {
+    const id = this.data.content._id;
+    this.ors.selectSchema.http.createItem(id, value).subscribe();
   }
 
 }

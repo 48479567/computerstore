@@ -7,6 +7,6 @@
   ></app-item>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button [disabled]="!dynamicForm.form.valid" (click)="update(dynamicForm.form.value)">Save</button>
+  <button mat-button [disabled]="!dynamicForm.form.valid" (click)="updateItem(dynamicForm.form.value)">Save</button>
   <button mat-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

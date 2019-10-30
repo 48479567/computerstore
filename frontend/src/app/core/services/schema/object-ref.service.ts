@@ -9,7 +9,10 @@ export class ObjectRefService {
     userid: []
   };
   formatQuestion: any;
-
+  selectSchema: any = {
+    http: null,
+    service: null,
+  };
 
   getObjectRef(resource: any[], selector: string) {
     this.objectRef[selector] = resource.map(r => ({ key: r.name, value: r._id }));
