@@ -1,17 +1,6 @@
-<mat-card class="item-card">
-  <mat-card-header>
-    <div mat-card-avatar class="item-header-image"></div>
-    <mat-card-title>{{ item.name }}</mat-card-title>
-    <mat-card-subtitle>{{ item.investment }}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image [src]="item.image" height="250px" alt="Item Image" />
-  <mat-card-content>
-      <p>{{ item.quantity }} in stock</p>
-      <div class="word-wrap">{{ item.description ? item.description : '' }}</div>
-  </mat-card-content>
-  <mat-card-actions *ngIf="showActions">
-    <button mat-button (click)="openFormDialog()">ADD</button>
-  </mat-card-actions>
-</mat-card>
+<button mat-fab (click)="openFormDialog()">
+  <mat-icon>add</mat-icon>
+</button>
+
 
 
