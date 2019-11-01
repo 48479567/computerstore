@@ -1,21 +1,24 @@
 <div [formGroup]="form">
-    <ng-container *ngFor="let s of section | keyvalue">
-      <mat-form-field
-        appearance="outline"
-        hideRequiredMarker="required">
+  <div formGroupName="section">
+    <mat-form-field
+      *ngFor="let sec of section.controls | keyvalue"
+      appearance="outline"
+      hideRequiredMarker="required">
 
-        <mat-label>{{ s.value }}</mat-label>
+      <mat-label>{{ sec.key | titlecase }}</mat-label>
+      <input
+      matInput
+      [placeholder]="sec.key | titlecase"
+      [formControlName]="sec.key"
+      aria-describedby="enter"
+      autocomplete="off"
+      [value]="section.controls[sec.key].value"
+      [id]="sec.key"
+      type="text"
+      required />
+      <mat-error *ngIf="!section.valid">Field {{ errorInput(section.controls[sec.key].errors) }}</mat-error>
+    </mat-form-field>
 
-        <input
-        matInput
-        [placeholder]="s.value"
-        [formControlName]="s.key"
-        aria-describedby="enter"
-        autocomplete="off"
-        [value]="s.value"
-        [id]="s.key"
-        type="text"
-        required />
-      </mat-form-field>
-    </ng-container>
+  </div>
 </div>
+
