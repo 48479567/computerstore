@@ -8,8 +8,8 @@
   [dataSource]="sources"></app-table>
 <ng-template #cardView>
   <app-item
-    *ngFor="let source of sources"
-    [item]="source"
+    *ngFor="let source of sources; index as i"
+    [item]="source" [index]="i"
   ></app-item>
   <app-item-create
     class="front-primary"

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { QuestionBase } from 'src/app/shared/models';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { QuestionControlService } from 'src/app/core/services/form/question-control.service';
 import { Router } from '@angular/router';
 

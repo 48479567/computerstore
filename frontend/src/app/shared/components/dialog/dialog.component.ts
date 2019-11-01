@@ -64,7 +64,8 @@ export class FormDialogComponent implements OnInit {
 
   updateItem(value: any): void {
     const id = this.data.content._id;
-    this.ors.selectSchema.http.createItem(id, value).subscribe();
+    const { index } = this.data;
+    this.ors.selectSchema.http.updateItem(id, value, index).subscribe();
   }
 
 }

@@ -126,7 +126,7 @@ export const formatQuestionProduct = (item: any, objectRef: ObjectRef): Question
       required: true,
       key: 'categoryid',
       options: objectRef.categoryid
-    })
+    }),
   ];
 };
 

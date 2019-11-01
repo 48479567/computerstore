@@ -13,6 +13,7 @@ import {
   PasswordFieldComponent,
   DynamicFormObjectComponent,
   DynamicFormObjectQuestionComponent,
+  DynamicFormScalableComponent,
   ReportComponent,
   ChartComponent,
   FilterComponent,
@@ -21,7 +22,7 @@ import {
   TableComponent,
   ItemComponent,
   ItemCreateComponent,
-  ContentComponent
+  ContentComponent,
 
 } from './components';
 
@@ -34,6 +35,7 @@ const COMPONENTS = [
   PasswordFieldComponent,
   DynamicFormObjectComponent,
   DynamicFormObjectQuestionComponent,
+  DynamicFormScalableComponent,
   ReportComponent,
   ChartComponent,
   FilterComponent,

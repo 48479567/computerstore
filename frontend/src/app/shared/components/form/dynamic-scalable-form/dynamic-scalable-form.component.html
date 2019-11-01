@@ -1,0 +1,21 @@
+<div [formGroup]="form">
+    <ng-container *ngFor="let s of section | keyvalue">
+      <mat-form-field
+        appearance="outline"
+        hideRequiredMarker="required">
+
+        <mat-label>{{ s.value }}</mat-label>
+
+        <input
+        matInput
+        [placeholder]="s.value"
+        [formControlName]="s.key"
+        aria-describedby="enter"
+        autocomplete="off"
+        [value]="s.value"
+        [id]="s.key"
+        type="text"
+        required />
+      </mat-form-field>
+    </ng-container>
+</div>
