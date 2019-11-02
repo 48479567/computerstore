@@ -1,10 +1,18 @@
 <h2 mat-dialog-title>Item Details</h2>
 <mat-dialog-content class="mat-typography">
-  <app-dynamic-form #dynamicForm [questions]="questions"></app-dynamic-form>
+  <app-dynamic-form #dynamicForm [questions]="questions">
+  </app-dynamic-form>
   <app-item
-    [item]="dynamicForm.form.value"
-    [showActions]="false"
+  [item]="dynamicForm.form.value"
+  [showActions]="false"
   ></app-item>
+  <ng-container *ngFor="let propery of data.content | keyvalue">
+    <app-form-scalable
+      *ngIf="isTypeOfObject(propery.value)"
+      [form]="dynamicForm.form"
+      [object]="propery.value"
+      [nameObject]="propery.key"></app-form-scalable>
+  </ng-container>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button [disabled]="!dynamicForm.form.valid" (click)="updateItem(dynamicForm.form.value)">Save</button>

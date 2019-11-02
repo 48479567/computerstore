@@ -1,7 +1,8 @@
 import { DropdownQuestion } from '../../form/question-dropdown';
-import { QuestionBase, SelectOption } from '../../form/question-base';
+import { QuestionBase } from '../../form/question-base';
 import { TextboxQuestion } from '../../form/question-textbox';
 import { ObjectRef } from '../objectref/objectref.schema';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 export class Product {
   constructor(
@@ -67,6 +68,18 @@ export class ProductSchemaForm {
   }
 
 }
+
+export const formatObjectQuestion = (item: any, objectRef: ObjectRef): FormGroup => {
+  const objectQuestion: FormGroup = new FormGroup({});
+  // tslint:disable-next-line: forin
+  for (const oq in item) {
+    if (oq === '__v') { continue; }
+
+    objectQuestion.addControl(oq, new FormControl(item[oq], Validators.required));
+  }
+  console.log(objectQuestion);
+  return objectQuestion;
+};
 
 export const formatQuestionProduct = (item: any, objectRef: ObjectRef): QuestionBase<any>[] => {
   return [

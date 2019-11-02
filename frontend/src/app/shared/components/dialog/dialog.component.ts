@@ -31,6 +31,10 @@ export class DialogCreateResourceComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  isTypeOfObject(value: any): boolean {
+    return typeof value === 'object';
+  }
+
   createItem(value: any): void {
     this.ors.selectSchema.http.createItem(value).subscribe();
   }
@@ -52,6 +56,7 @@ export class FormDialogComponent implements OnInit {
 
   ngOnInit() {
     this.getQuestions();
+    console.log('data.content', this.data.content);
   }
 
   getQuestions() {
@@ -60,6 +65,10 @@ export class FormDialogComponent implements OnInit {
 
   onClose(): void {
     this.dialogRef.close();
+  }
+
+  isTypeOfObject(value: any): boolean {
+    return typeof value === 'object';
   }
 
   updateItem(value: any): void {
