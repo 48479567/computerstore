@@ -6,10 +6,10 @@ import { CategorySchemaForm } from 'src/app/shared/models';
   providedIn: 'root'
 })
 export class CategoryService {
-  categories: CategorySchemaForm[];
+  items: CategorySchemaForm[];
 
   getCategories(): Observable<Array<CategorySchemaForm>> {
-    return of(this.categories);
+    return of(this.items);
   }
 
   constructor(

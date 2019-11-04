@@ -13,6 +13,7 @@ export class ObjectRefService {
     http: null,
     service: null,
   };
+  items: any;
 
   getObjectRef(resource: any[], selector: string) {
     this.objectRef[selector] = resource.map(r => ({ key: r.name, value: r._id }));

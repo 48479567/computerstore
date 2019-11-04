@@ -28,12 +28,14 @@ export class ProductComponent implements OnInit {
   }
 
   getProducts(): any {
-    if (this.productService.products) {
-      return this.products = this.productService.products;
+    if (this.productService.items) {
+      return this.products = this.productService.items;
     }
 
-    this.productHttp.getProducts().subscribe(
-      (products: ProductSchemaForm[]) => this.products = products);
+    this.productHttp.getItems().subscribe(
+      (products: ProductSchemaForm[]) => {
+        this.products = products;
+      });
   }
 
 }

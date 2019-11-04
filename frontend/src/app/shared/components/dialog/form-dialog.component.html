@@ -12,7 +12,9 @@
       [form]="dynamicForm.form"
       [object]="propery.value"
       [nameObject]="propery.key"></app-form-scalable>
+    <!-- <app-form-object [form]="dynamicForm.form" [resource]="this.data.content"></app-form-object> -->
   </ng-container>
+
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button [disabled]="!dynamicForm.form.valid" (click)="updateItem(dynamicForm.form.value)">Save</button>

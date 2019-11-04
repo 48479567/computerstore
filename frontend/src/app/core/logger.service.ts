@@ -12,7 +12,7 @@ export class LoggerService {
     console.log(msg);
     this.snackbar.open(msg, '✔️', {
       duration: 5000,
-      panelClass: [pclass ? pclass : '']
+      panelClass: [pclass ? pclass : 'bg-dark']
     });
   }
 }

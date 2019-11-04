@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FormDialogData } from '../../models/dialog/dialog.model';
 import { QuestionBase } from '../../models';
 import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dialog',
@@ -56,7 +57,6 @@ export class FormDialogComponent implements OnInit {
 
   ngOnInit() {
     this.getQuestions();
-    console.log('data.content', this.data.content);
   }
 
   getQuestions() {
@@ -74,7 +74,12 @@ export class FormDialogComponent implements OnInit {
   updateItem(value: any): void {
     const id = this.data.content._id;
     const { index } = this.data;
-    this.ors.selectSchema.http.updateItem(id, value, index).subscribe();
+
+    this.ors.selectSchema.http.updateItem(id, value).subscribe(
+      (data: any) => {
+        this.ors.selectSchema.service.items[index] = data;
+        this.onClose();
+    });
   }
 
 }

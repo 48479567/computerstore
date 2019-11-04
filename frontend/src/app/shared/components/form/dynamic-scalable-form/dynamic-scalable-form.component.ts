@@ -28,9 +28,7 @@ export class DynamicFormScalableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('object0', this.object);
     this.section = formatObjectQuestion(this.object, null);
-    console.log('controls0', this.section.controls);
     this.form.addControl(this.nameObject, this.section);
   }
 

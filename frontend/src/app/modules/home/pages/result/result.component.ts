@@ -37,12 +37,12 @@ export class ResultComponent implements OnInit {
    }
 
   getProducts(): any {
-    if (this.productService.products) {
-      this.products = this.productService.products;
+    if (this.productService.items) {
+      this.products = this.productService.items;
       this.productChart = this.getChartData(this.products);
       return;
     }
-    this.productHttpService.getProducts().subscribe(
+    this.productHttpService.getItems().subscribe(
       (products: ProductSchemaForm[]) => {
         this.products = products;
         this.productChart = this.getChartData(products);
@@ -51,12 +51,12 @@ export class ResultComponent implements OnInit {
 
   }
   getCategories(): any {
-    if (this.categoryService.categories) {
-      this.categories = this.categoryService.categories;
+    if (this.categoryService.items) {
+      this.categories = this.categoryService.items;
       this.categoryChart = this.getChartData(this.categories);
       return;
     }
-    this.categoryHttpService.getCategories().subscribe(
+    this.categoryHttpService.getItems().subscribe(
       (categories: CategorySchemaForm[]) => {
         this.categories = categories;
         this.categoryChart = this.getChartData(categories);

@@ -28,13 +28,14 @@ export class CategoryComponent implements OnInit {
   }
 
   getCategories(): any {
-    if (this.categoryService.categories) {
-      return this.categories = this.categoryService.categories;
+    if (this.categoryService.items) {
+      return this.categories = this.categoryService.items;
     }
 
-    this.categoryHttp.getCategories().subscribe(
-      (categories: CategorySchemaForm[]) => this.categories = categories
-    );
+    this.categoryHttp.getItems().subscribe(
+      (categories: CategorySchemaForm[]) => {
+        this.categories = categories;
+      });
   }
 
 }

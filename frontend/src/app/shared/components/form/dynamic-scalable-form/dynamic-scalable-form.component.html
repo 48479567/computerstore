@@ -9,15 +9,15 @@
 
       <mat-label>{{ propery.key | titlecase }}</mat-label>
       <input
-      matInput
-      [placeholder]="propery.key | titlecase"
-      [formControlName]="propery.key"
-      aria-describedby="enter"
-      autocomplete="off"
-      [value]="section.controls[propery.key].value"
-      [id]="propery.key"
-      type="text"
-      required />
+        matInput
+        [placeholder]="propery.key | titlecase"
+        [formControlName]="propery.key"
+        aria-describedby="enter"
+        autocomplete="off"
+        [value]="section.controls[propery.key].value"
+        [id]="propery.key"
+        type="text"
+        required />
       <button
         mat-icon-button
         matSuffix

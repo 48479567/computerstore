@@ -5,6 +5,7 @@ $color-secondary: #E91E63;
 $color-danger: #F44356;
 $color-success: #CDDC59;
 $color-warning: #FFEB2A;
+$color-dark: #262626;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -29,4 +30,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .bg-warning {
   background-color: $color-warning;
+}
+.bg-dark {
+  background-color: $color-dark;
 }
