@@ -7,6 +7,7 @@ export * from './form/dynamic-scalable-form/dynamic-scalable-form.component';
 export * from './report/report.component';
 export * from './report/chart/chart.component';
 export * from './filter/filter.component';
+export * from './filter/filter-list/filter-list.component';
 export * from './dialog/dialog.component';
 export * from './table/table.component';
 export * from './item/item.component';

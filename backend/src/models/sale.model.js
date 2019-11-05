@@ -20,6 +20,6 @@ const SaleSchema = new Schema({
       required: true
     }
   }]
-}, { timestamps: true })
+}, { timestamps: { createdAt: 'createdat', updatedAt: 'updatedat' } })
 
 module.exports = mongoose.model('Sale', SaleSchema, 'sale')

@@ -29,8 +29,8 @@ export class CategorySchema extends CategoryCard {
     public sale: number,
     public image: string,
     public description?: string,
-    public createdat?: number | string,
-    public updatedat?: number | string,
+    public createdat?: string | number,
+    public updatedat?: string | number,
     public id?: string,
   ) {
     super(name, quantity, image);

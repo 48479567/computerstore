@@ -4,12 +4,14 @@ const Schema = mongoose.Schema
 const PurchaseSchema = new Schema({
   userid: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    required: true
   },
   products: [{
     productid: {
       type: Schema.Types.ObjectId,
-      ref: 'Product'
+      ref: 'Product',
+      required: true
     },
     quantity: {
       type: Number,
@@ -20,6 +22,6 @@ const PurchaseSchema = new Schema({
       required: true
     }
   }]
-}, { timestamps: true })
+}, { timestamps: { createdAt: 'createdat', updatedAt: 'updatedat' } })
 
 module.exports = mongoose.model('Purchase', PurchaseSchema, 'purchase')

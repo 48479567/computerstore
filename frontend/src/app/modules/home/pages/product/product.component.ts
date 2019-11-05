@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductSchemaForm, formatQuestionProduct } from 'src/app/shared/models/schema/product/product.schema';
+import { ProductSchemaForm, formatQuestionProduct } from 'src/app/shared/models';
 import { ProductService } from 'src/app/core/services/schema/product.service';
 import { ProductHttpService } from 'src/app/core/http/schema/product/product.http.service';
 import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private productHttp: ProductHttpService,
-    private objectRefService: ObjectRefService
+    public objectRefService: ObjectRefService
   ) { }
 
   ngOnInit() {

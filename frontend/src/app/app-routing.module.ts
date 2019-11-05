@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/home/home.module')
                           .then(mod => mod.HomeModule) },
   { path: '', redirectTo: 'home/category', pathMatch: 'full' },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home/category', pathMatch: 'full' },
 ];
 
 @NgModule({

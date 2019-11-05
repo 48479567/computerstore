@@ -20,7 +20,6 @@ const COMPONENTS = [
     CommonModule,
     SharedModule, ],
   declarations: [...COMPONENTS],
-  exports: [...COMPONENTS],
   providers: [],
 })
 export class HomeModule { }

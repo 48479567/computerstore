@@ -50,6 +50,7 @@ export class ResultComponent implements OnInit {
     );
 
   }
+
   getCategories(): any {
     if (this.categoryService.items) {
       this.categories = this.categoryService.items;
@@ -75,6 +76,7 @@ export class ResultComponent implements OnInit {
     this.filterService.getFiltersSources().subscribe(
       (filtersSources: FilterToggle[]) => this.filtersSources = filtersSources);
   }
+
   getFiltersCharts(): void {
     this.filterService.getFiltersCharts().subscribe(
       (filtersCharts: FilterToggle[]) => this.filtersCharts = filtersCharts);

@@ -1,15 +1,13 @@
 <mat-toolbar>
   <mat-toolbar-row>
     <app-filter #filter [filtersSources]="filtersCharts"></app-filter>
-    <form [style.fontSize.px]="10">
-      <mat-form-field appearance="outline">
-        <mat-label>Schema</mat-label>
-        <mat-select #schemaSelect>
-          <mat-option [value]="productChart">Product</mat-option>
-          <mat-option [value]="categoryChart">Category</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </form>
+    <app-filter-list
+      #schemaSelect
+      [filterSourcesList]="[
+        {key: 'product', value: 'productChart'},
+        {key: 'category', value: 'categoryChart'}
+      ]"
+    ></app-filter-list>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-card>
@@ -18,5 +16,5 @@
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum maiores quam asperiores, atque id perspiciatis quas voluptatibus, aperiam animi quidem vero neque voluptate quos quibusdam minima! Ex quod ut ab!
   </mat-card-content>
 </mat-card>
-<app-report [data]="schemaSelect.value" [type]="filter.value"></app-report>
+<app-report [data]="schemaSelect.selectValue" [type]="filter.value"></app-report>
 

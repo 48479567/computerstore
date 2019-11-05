@@ -51,8 +51,8 @@ export class ProductSchemaForm {
     public image?: string,
     public categoryid?: string,
     public features?: any,
-    public createdat?: number | string,
-    public updatedat?: number | string,
+    public createdat?: string | number,
+    public updatedat?: string | number,
     public id?: string,
   ) {
     this.name = name ? name : '';
@@ -77,7 +77,6 @@ export const formatObjectQuestion = (item: any, objectRef: ObjectRef): FormGroup
 
     objectQuestion.addControl(oq, new FormControl(item[oq], Validators.required));
   }
-  console.log(objectQuestion);
   return objectQuestion;
 };
 
