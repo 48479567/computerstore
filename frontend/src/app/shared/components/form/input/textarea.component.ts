@@ -9,7 +9,6 @@ import { SelectOption } from 'src/app/shared/models';
       <textarea
         matInput
         [placeholder]="label"
-        [formControlName]="formControlName"
         [id]="label"
         [required]="required"
         [value]="value"
@@ -22,7 +21,6 @@ import { SelectOption } from 'src/app/shared/models';
 export class TextareaComponent implements OnInit {
   @Input() label = '';
   @Input() placeholder = '';
-  @Input() formControlName = '';
   @Input() value = '';
   @Input() required = true;
 

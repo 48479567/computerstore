@@ -9,7 +9,6 @@ import { SaleDialogCreateComponent } from './sale-dialog-create/sale-dialog-crea
 })
 
 export class SaleComponent implements OnInit {
-  createSale: SaleSchemaForm = new SaleSchemaForm();
   componentDialog = SaleDialogCreateComponent;
 
   constructor() { }

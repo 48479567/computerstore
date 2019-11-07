@@ -8,7 +8,6 @@ import { SelectOption } from 'src/app/shared/models';
       <mat-label>{{ label | titlecase }}</mat-label>
       <mat-select
         [value]="value"
-        [formControlName]="formControlName"
         [placeholder]="placeholder"
         [id]="label"
         [required]="required">
@@ -25,7 +24,6 @@ import { SelectOption } from 'src/app/shared/models';
 export class SelectComponent implements OnInit {
   @Input() label = '';
   @Input() placeholder = '';
-  @Input() formControlName = '';
   @Input() value = '';
   @Input() required = true;
   @Input() options: SelectOption[] = [];

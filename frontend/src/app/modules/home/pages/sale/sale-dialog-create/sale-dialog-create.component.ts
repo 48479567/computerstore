@@ -1,33 +1,63 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { FormDialogData, SaleSchemaForm, SelectOption, ProductSchema, ProductSchemaForm } from 'src/app/shared/models';
-import { FormGroup } from '@angular/forms';
-import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { MAT_DIALOG_DATA, MatDialogRef, MatTableDataSource } from '@angular/material';
+import { FormDialogData, ProductSchemaForm } from 'src/app/shared/models';
 import { ProductService } from 'src/app/core/services/schema/product.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sale-dialog-create',
-  templateUrl: './sale-dialog-create.component.html'
+  templateUrl: './sale-dialog-create.component.html',
+  styleUrls: ['./sale-dialog-create.component.scss']
 })
 
 export class SaleDialogCreateComponent implements OnInit {
-  form: FormGroup;
+  displayedColumns: string[] = [
+    'detail', 'product', 'stock', 'price', 'quantity', 'sale', 'total', 'actions'
+  ];
+
+  selectedProducts: any[] = [];
+  dataSource: MatTableDataSource<any>;
+
+  indexSelectProducts: number[] = [];
+
   dateNow = Date.now();
-  createSale: SaleSchemaForm = new SaleSchemaForm();
-  productsSource$: Observable<any[]> = this.productService.getProducts();
+  productsSource: ProductSchemaForm[] = [];
 
 
   constructor(
     public dialogRef: MatDialogRef<SaleDialogCreateComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: FormDialogData,
-    private objectRef: ObjectRefService,
     private productService: ProductService
-  ) { }
+  ) {
+    this.dataSource = new MatTableDataSource(this.selectedProducts);
+  }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.productService.getProducts().subscribe(
+      (products: ProductSchemaForm[]) => {
+        this.productsSource = products;
+      }
+    );
+  }
 
-  addControl(productValue: string): void {
-    console.log(productValue);
+  addControl(index: number): void {
+    if (this.indexSelectProducts.includes(index)) { return; }
+
+    const selProduct: ProductSchemaForm = this.productsSource[index];
+
+    this.dataSource.data.push({
+      detail: selProduct,
+      product: selProduct.name,
+      stock: selProduct.quantity,
+      price: selProduct.price ? selProduct.price : 0,
+      quantity: 0,
+      sale: selProduct.price,
+      total: 0,
+      actions: index
+    });
+    this.indexSelectProducts.push(index);
+    this.dataSource.filter = '';
+  }
+
+  openProductDetail(product: ProductSchemaForm): void {
+
   }
 }
