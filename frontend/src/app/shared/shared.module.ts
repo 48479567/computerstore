@@ -24,6 +24,9 @@ import {
   ItemComponent,
   ItemCreateComponent,
   ContentComponent,
+  TextareaComponent,
+  TextboxComponent,
+  SelectComponent,
 
 } from './components';
 
@@ -47,6 +50,9 @@ const COMPONENTS = [
   ItemComponent,
   ItemCreateComponent,
   ContentComponent,
+  TextareaComponent,
+  TextboxComponent,
+  SelectComponent,
 
 ];
 
@@ -64,7 +70,7 @@ const ENTRY_COMPONENTS = [
     ChartsModule,
 
   ],
-  exports: [MaterialModule, ...COMPONENTS],
+  exports: [MaterialModule, ...COMPONENTS, ReactiveFormsModule],
   declarations: [...COMPONENTS],
   entryComponents: [...ENTRY_COMPONENTS],
   providers: [],

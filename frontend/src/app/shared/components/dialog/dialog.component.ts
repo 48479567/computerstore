@@ -15,7 +15,7 @@ export class DialogCreateResourceComponent implements OnInit {
   questions: QuestionBase<any>[];
 
   constructor(
-    public dialogRef: MatDialogRef<FormDialogComponent>,
+    public dialogRef: MatDialogRef<DialogCreateResourceComponent>,
     @Inject(MAT_DIALOG_DATA) public data: FormDialogData,
     private ors: ObjectRefService
   ) { }
