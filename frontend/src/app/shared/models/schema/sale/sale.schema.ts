@@ -6,8 +6,8 @@ export class SaleProducts {
 
 export class SaleSchemaForm {
   constructor(
-    public userid: string,
-    public products: SaleProducts[],
+    public userid?: string,
+    public products?: SaleProducts[],
     public createdat?: string | number,
     public updatedat?: string | number,
   ) {

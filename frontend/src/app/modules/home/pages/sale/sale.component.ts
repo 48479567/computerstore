@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SaleSchemaForm } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-sale',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class SaleComponent implements OnInit {
+  createSale: SaleSchemaForm = new SaleSchemaForm();
+  componentDialog = '';
+
   constructor() { }
 
   ngOnInit() { }

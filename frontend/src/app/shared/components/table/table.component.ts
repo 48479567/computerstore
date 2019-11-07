@@ -10,6 +10,7 @@ import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 export class TableComponent implements OnInit {
   @Input() dataSource: any;
   data: MatTableDataSource<any>;
+  dataRelevant: any[];
 
   displayedColumns: string[] = [];
 
@@ -20,12 +21,34 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data = new MatTableDataSource(this.dataSource);
-    this.displayedColumns = Object.keys(this.dataSource[0]);
+    this.dataRelevant = this.deleteIrrelevantFields(this.dataSource);
+    this.data = new MatTableDataSource(this.dataRelevant);
+    this.displayedColumns = Object.keys(this.dataRelevant[0]);
     this.data.paginator = this.paginator;
     this.data.sort = this.sort;
+    console.log(this.data);
 
   }
+
+  deleteIrrelevantFields(data: any[]): Array<any> {
+    const dataRelevant: any[] = data.map((d: any, index: number) => {
+      const order = index + 1;
+      const {
+        name = '-',
+        mark = '-',
+        quantity =  '-',
+        investment = '-',
+        sale = '-',
+        price = '-',
+        description = '-',
+      } = d;
+
+      return { order, name, mark, quantity, investment, sale, price, description };
+    });
+    return dataRelevant;
+  }
+
+
 
   applyFilter(filterValue: string) {
     this.data.filter = filterValue.trim().toLowerCase();

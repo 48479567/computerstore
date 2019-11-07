@@ -5,8 +5,7 @@
     (keyup)="applyFilter($event.target.value)"
     placeholder="Filter" />
 </mat-form-field>
-
-<div class="mat-elevation-z8">
+<div>
   <table mat-table [dataSource]="data" matSort>
     <ng-container
       *ngFor="let displayedColumn of displayedColumns"
@@ -19,9 +18,9 @@
         mat-cell
         *matCellDef="let element">{{ element[displayedColumn] }}</td>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 15]"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 15, 20, 25, 30]"></mat-paginator>
 </div>
 

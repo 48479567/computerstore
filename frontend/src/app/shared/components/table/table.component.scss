@@ -10,10 +10,23 @@
 
 div {
   width: 90%;
+  height: 80%;
   margin: auto;
+  overflow-x: auto;
+}
+
+.mat-table {
+  border-spacing: 5px;
 }
 
 table {
   width: 100%;
+  overflow-x: auto;
+}
+
+mat-paginator {
+  position: sticky;
+  bottom: 0;
+  left: 0;
 }
 

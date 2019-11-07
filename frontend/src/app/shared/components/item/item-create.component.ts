@@ -10,6 +10,7 @@ import { DialogCreateResourceComponent } from '../dialog/dialog.component';
 export class ItemCreateComponent implements OnInit {
   @Input() item: any;
   @Input() showActions = true;
+  @Input() component = DialogCreateResourceComponent;
 
   constructor(
     public dialog: MatDialog,
@@ -19,7 +20,7 @@ export class ItemCreateComponent implements OnInit {
   }
 
   openFormDialog(): void {
-    const formDialogRef = this.dialog.open(DialogCreateResourceComponent, {
+    const formDialogRef = this.dialog.open(this.component, {
       data: { content: this.item }
     });
   }
