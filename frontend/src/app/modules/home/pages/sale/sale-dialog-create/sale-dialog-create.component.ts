@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef, MatTableDataSource } from '@angular/material';
+import { MatDialogRef, MatTableDataSource, MatDialog } from '@angular/material';
 import { ProductSchemaForm } from 'src/app/shared/models';
 import { ProductService } from 'src/app/core/services/schema/product.service';
+import { ProductHttpService } from 'src/app/core/http/schema/product/product.http.service';
+import { ProductDialogDetailComponent } from '../product-dialog-detail/product-dialog-detail.component';
 
 @Component({
   selector: 'app-sale-dialog-create',
@@ -11,7 +13,7 @@ import { ProductService } from 'src/app/core/services/schema/product.service';
 
 export class SaleDialogCreateComponent implements OnInit {
   displayedColumns: string[] = [
-    'detail', 'product', 'stock', 'price', 'quantity', 'sale', 'total', 'actions'
+    'index', 'product', 'stock', 'price', 'quantity', 'sale', 'total', 'actions'
   ];
 
   selectedProducts: any[] = [];
@@ -25,17 +27,32 @@ export class SaleDialogCreateComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<SaleDialogCreateComponent>,
-    private productService: ProductService
+    private productService: ProductService,
+    private productHttp: ProductHttpService,
+    public dialog: MatDialog,
   ) {
     this.dataSource = new MatTableDataSource(this.selectedProducts);
   }
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(
-      (products: ProductSchemaForm[]) => {
-        this.productsSource = products;
-      }
-    );
+    this.getProducts();
+  }
+
+  getProducts(): void {
+    if (this.productService.items) {
+      this.productService.getProducts().subscribe(
+        (products: ProductSchemaForm[]) => {
+          this.productsSource = products;
+        }
+      );
+    } else {
+      this.productHttp.getItems().subscribe(
+        (products: ProductSchemaForm[]) => {
+          this.productsSource = products;
+        }
+      );
+
+    }
   }
 
   addControl(index: number): void {
@@ -46,14 +63,14 @@ export class SaleDialogCreateComponent implements OnInit {
     const selProduct: ProductSchemaForm = this.productsSource[index];
 
     this.dataSource.data.push({
-      detail: selProduct,
+      index,
       product: selProduct.name,
       stock: selProduct.quantity,
       price: selProduct.price ? selProduct.price : 0,
       quantity: 0,
       sale: selProduct.price,
       total: 0,
-      actions: index
+      actions: selProduct
     });
     this.indexSelectProducts.push(index);
     console.log(this.dataSource.data);
@@ -61,6 +78,16 @@ export class SaleDialogCreateComponent implements OnInit {
   }
 
   openProductDetail(product: ProductSchemaForm): void {
+    const formDialogRef = this.dialog.open(ProductDialogDetailComponent, {
+      data: product
+    });
+  }
 
+  deleteProduct(index: number, elementIndex: number): void {
+    this.indexSelectProducts.splice(this.indexSelectProducts.indexOf(elementIndex), 1);
+    this.dataSource.data.splice(index, 1);
+    this.dataSource.filter = '';
+    console.log('index', index);
+    console.log('elementIndex', elementIndex);
   }
 }
