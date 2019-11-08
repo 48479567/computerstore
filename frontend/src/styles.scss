@@ -18,9 +18,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .bg-primary {
   background-color: $color-primary;
+  color: #ffffff;
 }
 .bg-danger {
   background-color: $color-danger;
+  color: #ffffff;
 }
 .bg-secondary {
   background-color: $color-secondary;

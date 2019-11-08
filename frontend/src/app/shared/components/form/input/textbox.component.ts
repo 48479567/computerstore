@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { SelectOption } from 'src/app/shared/models';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-textbox',
@@ -11,6 +10,8 @@ import { SelectOption } from 'src/app/shared/models';
       <mat-label>{{ label | titlecase }}</mat-label>
       <input
         matInput
+        #inputText
+        (input)="setValueInter(inputText.value)"
         [value]="value"
         [min]="min"
         [max]="max"
@@ -28,12 +29,17 @@ import { SelectOption } from 'src/app/shared/models';
 export class TextboxComponent implements OnInit {
   @Input() label = '';
   @Input() placeholder = '';
-  @Input() value = '';
+  @Input() value: any;
   @Input() min = -100000;
   @Input() max = 100000;
   @Input() type: string | number = '' || 0;
   @Input() required = true;
   @Input() size = 16;
+  @Output() valueChange = new EventEmitter<any>();
+
+  setValueInter(value: any): void {
+    this.valueChange.emit(value);
+  }
 
 
   constructor() { }

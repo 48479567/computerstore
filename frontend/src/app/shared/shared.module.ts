@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from './material/material.module';
 import { ChartsModule } from 'ng2-charts';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {
   DynamicFormComponent,
@@ -70,7 +70,7 @@ const ENTRY_COMPONENTS = [
     ChartsModule,
 
   ],
-  exports: [MaterialModule, ...COMPONENTS, ReactiveFormsModule],
+  exports: [MaterialModule, ...COMPONENTS, ReactiveFormsModule, FormsModule],
   declarations: [...COMPONENTS],
   entryComponents: [...ENTRY_COMPONENTS],
   providers: [],

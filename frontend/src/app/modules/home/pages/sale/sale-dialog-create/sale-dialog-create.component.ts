@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef, MatTableDataSource } from '@angular/material';
-import { FormDialogData, ProductSchemaForm } from 'src/app/shared/models';
+import { Component, OnInit } from '@angular/core';
+import { MatDialogRef, MatTableDataSource } from '@angular/material';
+import { ProductSchemaForm } from 'src/app/shared/models';
 import { ProductService } from 'src/app/core/services/schema/product.service';
 
 @Component({
@@ -39,7 +39,9 @@ export class SaleDialogCreateComponent implements OnInit {
   }
 
   addControl(index: number): void {
-    if (this.indexSelectProducts.includes(index)) { return; }
+    if (this.indexSelectProducts.includes(index) || this.productsSource[index].quantity === 0) {
+      return;
+    }
 
     const selProduct: ProductSchemaForm = this.productsSource[index];
 
@@ -54,6 +56,7 @@ export class SaleDialogCreateComponent implements OnInit {
       actions: index
     });
     this.indexSelectProducts.push(index);
+    console.log(this.dataSource.data);
     this.dataSource.filter = '';
   }
 
