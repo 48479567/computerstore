@@ -15,6 +15,7 @@ const createResource = async (req, res, model, statusNumber) => {
   }
 }
 
+
 module.exports = {
   createResource
 }

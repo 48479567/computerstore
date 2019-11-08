@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatTableDataSource, MatDialog } from '@angular/material';
-import { ProductSchemaForm } from 'src/app/shared/models';
+import { ProductSchemaForm, SaleSchemaForm } from 'src/app/shared/models';
 import { ProductService } from 'src/app/core/services/schema/product.service';
 import { ProductHttpService } from 'src/app/core/http/schema/product/product.http.service';
 import { ProductDialogDetailComponent } from '../product-dialog-detail/product-dialog-detail.component';
@@ -87,7 +87,15 @@ export class SaleDialogCreateComponent implements OnInit {
     this.indexSelectProducts.splice(this.indexSelectProducts.indexOf(elementIndex), 1);
     this.dataSource.data.splice(index, 1);
     this.dataSource.filter = '';
-    console.log('index', index);
-    console.log('elementIndex', elementIndex);
+  }
+
+  registerSale() {
+    const sales: SaleSchemaForm = {
+      userid : '5dc36b934967ed31cc076620'
+    };
+    sales.products = this.dataSource.data.map(ds => ({
+      productid: ds.actions._id, quantity: ds.quantity, saleprice: ds.price
+    }));
+    console.log(sales);
   }
 }
