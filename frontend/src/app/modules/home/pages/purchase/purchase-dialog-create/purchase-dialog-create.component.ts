@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatTableDataSource, MatDialog } from '@angular/material';
-import { ProductSchemaForm, SaleSchemaForm } from 'src/app/shared/models';
+import { ProductSchemaForm, PurchaseSchemaForm } from 'src/app/shared/models';
 import { ProductService } from 'src/app/core/services/schema/product.service';
 import { ProductHttpService } from 'src/app/core/http/schema/product.http.service';
 import { ProductDialogDetailComponent } from '../product-dialog-detail/product-dialog-detail.component';
 
 @Component({
-  selector: 'app-sale-dialog-create',
-  templateUrl: './sale-dialog-create.component.html',
-  styleUrls: ['./sale-dialog-create.component.scss']
+  selector: 'app-purchase-dialog-create',
+  templateUrl: './purchase-dialog-create.component.html',
+  styleUrls: ['./purchase-dialog-create.component.scss']
 })
 
-export class SaleDialogCreateComponent implements OnInit {
+export class PurchaseDialogCreateComponent implements OnInit {
   displayedColumns: string[] = [
-    'index', 'product', 'stock', 'price', 'quantity', 'sale', 'total', 'actions'
+    'index', 'product', 'stock', 'price', 'quantity', 'purchase', 'total', 'actions'
   ];
 
   selectedProducts: any[] = [];
@@ -26,7 +26,7 @@ export class SaleDialogCreateComponent implements OnInit {
 
 
   constructor(
-    public dialogRef: MatDialogRef<SaleDialogCreateComponent>,
+    public dialogRef: MatDialogRef<PurchaseDialogCreateComponent>,
     private productService: ProductService,
     private productHttp: ProductHttpService,
     public dialog: MatDialog,
@@ -56,7 +56,7 @@ export class SaleDialogCreateComponent implements OnInit {
   }
 
   addControl(index: number): void {
-    if (this.indexSelectProducts.includes(index) || this.productsSource[index].quantity === 0) {
+    if (this.indexSelectProducts.includes(index)) {
       return;
     }
 
@@ -68,7 +68,7 @@ export class SaleDialogCreateComponent implements OnInit {
       stock: selProduct.quantity,
       price: selProduct.price ? selProduct.price : 0,
       quantity: 0,
-      sale: selProduct.price,
+      purchase: selProduct.price,
       total: 0,
       actions: selProduct
     });
@@ -89,13 +89,13 @@ export class SaleDialogCreateComponent implements OnInit {
     this.dataSource.filter = '';
   }
 
-  registerSale() {
-    const sales: SaleSchemaForm = {
+  registerPurchase() {
+    const purchases: any = {
       userid : '5dc36b934967ed31cc076620'
     };
-    sales.products = this.dataSource.data.map(ds => ({
-      productid: ds.actions._id, quantity: ds.quantity, saleprice: ds.price * ds.quantity
+    purchases.products = this.dataSource.data.map(ds => ({
+      productid: ds.actions._id, quantity: ds.quantity, purchaseprice: ds.price * ds.quantity
     }));
-    console.log(sales);
+    console.log(purchases);
   }
 }

@@ -1,0 +1,42 @@
+<h3 mat-dialog-title>Product Detail</h3>
+<h4 mat-dialog-subtitle>_id: {{ product._id }}</h4>
+<h5 mat-dialog-subtitle>CreateAt: {{ product.createdat }}</h5>
+
+<mat-dialog-content>
+  <div>
+    <mat-list>
+      <mat-list-item>Name: {{ product.name }}</mat-list-item>
+      <mat-list-item>Mark: {{ product.mark }}</mat-list-item>
+      <mat-list-item>Quantity: {{ product.quantity }}</mat-list-item>
+      <mat-list-item>Sale: {{ product.sale }}</mat-list-item>
+      <mat-list-item>Price: {{ product.price }}</mat-list-item>
+    </mat-list>
+  </div>
+  <div>
+    <img [src]="product.image" width="300" height="320" alt="Product Image" />
+  </div>
+  <div>
+    Features:
+    <mat-list>
+      <mat-list-item *ngFor="let feature of product.features | keyvalue">
+        {{ feature.key | titlecase }}: {{ feature.value }}
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+</mat-dialog-content>
+
+
+<!-- categoryid: "5db1427923eea82c105ff0e9"
+createdat: "2019-10-29T23:37:35.351Z"
+features: {pc: "core i7", storage: "2TB", RAM: "16GB"}
+image: "https://i.imgur.com/yEKB3RH.png"
+investment: 0
+mark: "Lenovo"
+name: "Computer 2"
+price: 0
+quantity: 1
+sale: 0
+updatedAt: "2019-10-29T23:37:35.351Z"
+__v: 0
+_id: "5db8cd3f29957d408cca5073" -->

@@ -1,0 +1,96 @@
+<h3 mat-dialog-title>New Purchase</h3>
+<h5 mat-dialog-subtitle>Date: {{ dateNow | date: 'medium' }}</h5>
+
+<mat-dialog-content class="mat-typography">
+  <table
+    mat-table
+    class="mat-elevation-z8"
+    [dataSource]="dataSource">
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef>Index</th>
+      <td mat-cell *matCellDef="let element">{{ element.index }}</td>
+    </ng-container>
+    <ng-container matColumnDef="product">
+      <th mat-header-cell *matHeaderCellDef>Product Name</th>
+      <td mat-cell *matCellDef="let element"> {{ element.product }} </td>
+    </ng-container>
+    <ng-container matColumnDef="stock">
+      <th mat-header-cell *matHeaderCellDef>Stock</th>
+      <td mat-cell *matCellDef="let element"> {{ +element.stock + +element.quantity }} </td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let element"> {{ element.price }} </td>
+    </ng-container>
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+      <td mat-cell *matCellDef="let element">
+        <app-textbox
+          label="Quantity"
+          placeholder="Quantity"
+          min="0"
+          label="Quantity"
+          [(value)]="element.quantity"
+          type="number"
+          size="10"
+          ></app-textbox>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="purchase">
+      <th mat-header-cell *matHeaderCellDef>Purchase Price</th>
+      <td mat-cell *matCellDef="let element">
+        <app-textbox
+          #inputText
+          label="Purchase Price"
+          placeholder="Purchase Price"
+          min="0"
+          [(value)]="element.price"
+          [label]="element.product"
+          type="number"
+          size="10"
+        ></app-textbox>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef>Total</th>
+      <td mat-cell *matCellDef="let element">{{ element.price * element.quantity }}</td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element; index as i">
+        <button mat-icon-button
+          (click)="openProductDetail(element.actions)">
+          <mat-icon>pageview</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteProduct(i, element.index)"><mat-icon>clear</mat-icon></button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-divider></mat-divider>
+
+  <mat-form-field appearance="fill">
+  <mat-label>New Product</mat-label>
+  <mat-select
+  #productSelect
+  (selectionChange)="addControl(productSelect.value);
+                     productSelect.value=''">
+  <ng-container *ngFor="let opt of productsSource; index as i">
+  <mat-option
+    [value]="i" [ngClass]="!opt.quantity ? 'bg-primary' : ''">
+    {{ opt.name }} - quantity ({{ opt.quantity }})
+  </mat-option>
+  </ng-container>
+  </mat-select>
+  </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="registerPurchase()">Save</button>
+  <button mat-button>Cancel</button>
+</mat-dialog-actions>
+
+

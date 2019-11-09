@@ -42,7 +42,7 @@ export class SaleHttpService {
           this.logger.log(`Insert sale with _id: ${newSale._id}.`, 'bg-success');
         }),
         catchError(this.handleErrorService.handleError<SaleSchemaForm>(
-          'Create Sale', {}, this.logger)
+          'Create Sale', null, this.logger)
         )
       );
   }
