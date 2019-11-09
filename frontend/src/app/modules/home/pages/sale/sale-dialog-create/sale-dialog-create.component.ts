@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatTableDataSource, MatDialog } from '@angular/material';
 import { ProductSchemaForm, SaleSchemaForm } from 'src/app/shared/models';
 import { ProductService } from 'src/app/core/services/schema/product.service';
-import { ProductHttpService } from 'src/app/core/http/schema/product/product.http.service';
+import { ProductHttpService } from 'src/app/core/http/schema/product.http.service';
 import { ProductDialogDetailComponent } from '../product-dialog-detail/product-dialog-detail.component';
 
 @Component({

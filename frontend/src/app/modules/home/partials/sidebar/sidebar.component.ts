@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Page } from 'src/app/shared/models';
-import { pages } from 'src/assets/data';
+import { PageIcon } from 'src/app/shared/models';
+import { pagesIcon } from 'src/assets/data';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,7 +9,7 @@ import { pages } from 'src/assets/data';
 })
 
 export class SidebarComponent implements OnInit {
-  pages: Page[] = pages;
+  pagesIcon: PageIcon[] = pagesIcon;
   constructor() { }
 
   ngOnInit() { }

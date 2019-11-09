@@ -7,9 +7,7 @@ import {
 } from '../../../../assets/data';
 import { Observable, of } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class FilterService {
 
   constructor(

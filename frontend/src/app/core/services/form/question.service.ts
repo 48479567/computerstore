@@ -6,9 +6,7 @@ import {
 } from 'src/app/shared/models';
 import { Observable, of } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class QuestionService {
   getQuestions() {
     const questions: QuestionBase<any>[] = [

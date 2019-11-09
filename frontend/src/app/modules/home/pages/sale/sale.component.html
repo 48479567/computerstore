@@ -1,2 +1,41 @@
-<!-- <mat-table ></mat-table> -->
+<table mat-table matSort [dataSource]="data"
+       multiTemplateDataRows class="mat-elevation-z8">
+
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+    <th mat-header-cell mat-sort-header
+        *matHeaderCellDef>{{ column | titlecase }}</th>
+    <td mat-cell *matCellDef="let element">
+      {{ !isObject(element[column]) ? element[column] : '+' }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <div
+            class="mat-elevation-z2 product"
+            *ngFor="let product of element.products; index as i">
+              <p mat-line># {{ i + 1 }}</p>
+              <p>ProductId: <a mat-line href="#"> {{ product._id }}</a></p>
+              <p mat-line>Quantity: {{ product.quantity }}</p>
+              <p mat-line>Price of Sale: {{ product.saleprice }}</p>
+              <p mat-line>Total: {{ product.saleprice * product.quantity }}</p>
+          </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 15, 20, 25, 30]"></mat-paginator>
+
+
+
+
 <app-item-create [component]="componentDialog"></app-item-create>

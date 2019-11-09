@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
 import { CategorySchemaForm } from 'src/app/shared/models';
-import { URL } from '../../data.http';
+import { URL } from '../data.http';
 import { CategoryService } from 'src/app/core/services/schema/category.service';
 import { LoggerService } from 'src/app/core/logger.service';
 import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
 import { HandleErrorService } from 'src/app/core/handle-error.service';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class CategoryHttpService {
   constructor(
     private http: HttpClient,

@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { CategorySchemaForm } from 'src/app/shared/models';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class CategoryService {
   items: CategorySchemaForm[];
 

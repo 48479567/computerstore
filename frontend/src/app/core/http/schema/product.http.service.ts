@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { tap, map, catchError } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
 
 import { ProductSchemaForm } from 'src/app/shared/models';
-import { URL } from '../../data.http';
+import { URL } from '../data.http';
 import { ProductService } from 'src/app/core/services/schema/product.service';
 import { LoggerService } from 'src/app/core/logger.service';
 import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
 import { HandleErrorService } from 'src/app/core/handle-error.service';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class ProductHttpService {
   constructor(
     private http: HttpClient,
