@@ -2,6 +2,8 @@ export class PurchaseProducts {
   productid: string;
   quantity: number;
   investmentprice: number;
+  productname?: string;
+  productindex?: number;
 }
 
 export class PurchaseSchemaForm {

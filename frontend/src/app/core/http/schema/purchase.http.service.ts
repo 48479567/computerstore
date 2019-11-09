@@ -9,6 +9,7 @@ import { PurchaseService } from 'src/app/core/services/schema/purchase.service';
 import { LoggerService } from 'src/app/core/logger.service';
 import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
 import { HandleErrorService } from 'src/app/core/handle-error.service';
+import { ProductService } from '../../services/schema/product.service';
 
 @Injectable({ providedIn: 'root' })
 export class PurchaseHttpService {
@@ -16,6 +17,7 @@ export class PurchaseHttpService {
     private http: HttpClient,
     private purchaseService: PurchaseService,
     private logger: LoggerService,
+    private productService: ProductService,
     private objRefService: ObjectRefService,
     private handleErrorService: HandleErrorService
   ) { }
@@ -39,12 +41,22 @@ export class PurchaseHttpService {
       .pipe(
         tap((newPurchase: any) => {
           this.purchaseService.items.push(newPurchase);
+          this.updateProducts(newPurchase.products);
           this.logger.log(`Insert purchase with _id: ${newPurchase._id}.`, 'bg-success');
         }),
-        catchError(this.handleErrorService.handleError<PurchaseSchemaForm>(
-          'Create Purchase', null , this.logger)
+        catchError(
+          this.handleErrorService.handleError<PurchaseSchemaForm>(
+            'Create Purchase', null , this.logger)
         )
       );
+  }
+
+  updateProducts(purchaseProducts: any[]): void {
+    purchaseProducts.forEach((p: any) => {
+      const currentProduct = this.productService.items[p.productindex];
+      currentProduct.quantity += p.quantity;
+      currentProduct.investment += p.investmentprice;
+    });
   }
 
   updateItem(id: string, data: any): Observable<PurchaseSchemaForm> {
@@ -53,7 +65,8 @@ export class PurchaseHttpService {
         tap((purchase: any) => {
           this.logger.log(`Updated purchase with _id: ${purchase._id}.`);
         }),
-        catchError(this.handleErrorService.handleError<PurchaseSchemaForm>(
+        catchError(
+          this.handleErrorService.handleError<PurchaseSchemaForm>(
           'Update Purchase', data, this.logger)
         )
       );

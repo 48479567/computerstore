@@ -18,6 +18,12 @@ const SaleSchema = new Schema({
     saleprice: {
       type: Number,
       required: true
+    },
+    productname: {
+      type: String
+    },
+    productindex: {
+      type: Number
     }
   }]
 }, { timestamps: { createdAt: 'createdat', updatedAt: 'updatedat' } })

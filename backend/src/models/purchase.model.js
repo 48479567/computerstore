@@ -20,6 +20,12 @@ const PurchaseSchema = new Schema({
     investmentprice: {
       type: Number,
       required: true
+    },
+    productname: {
+      type: String
+    },
+    productindex: {
+      type: Number
     }
   }]
 }, { timestamps: { createdAt: 'createdat', updatedAt: 'updatedat' } })

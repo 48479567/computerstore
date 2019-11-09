@@ -17,9 +17,10 @@
             *ngFor="let product of element.products; index as i">
               <p mat-line># {{ i + 1 }}</p>
               <p>ProductId: <a mat-line href="#"> {{ product._id }}</a></p>
+              <p>ProductName: {{ product.productname }}</p>
               <p mat-line>Quantity: {{ product.quantity }}</p>
               <p mat-line>Price of Sale: {{ product.saleprice }}</p>
-              <p mat-line>Total: {{ product.saleprice * product.quantity }}</p>
+              <p mat-line>Total: {{ product.saleprice }}</p>
           </div>
       </div>
     </td>
@@ -33,7 +34,7 @@
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
-<mat-paginator [pageSizeOptions]="[5, 10, 15, 20, 25, 30]"></mat-paginator>
+<mat-paginator [pageSizeOptions]="[5, 10, 15, 20, 25, 30, 35, 40, 50]"></mat-paginator>
 
 
 

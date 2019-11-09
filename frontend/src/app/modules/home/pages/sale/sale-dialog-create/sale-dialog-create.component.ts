@@ -4,6 +4,7 @@ import { ProductSchemaForm, SaleSchemaForm } from 'src/app/shared/models';
 import { ProductService } from 'src/app/core/services/schema/product.service';
 import { ProductHttpService } from 'src/app/core/http/schema/product.http.service';
 import { ProductDialogDetailComponent } from '../product-dialog-detail/product-dialog-detail.component';
+import { SaleHttpService } from 'src/app/core/http/schema/sale.http.service';
 
 @Component({
   selector: 'app-sale-dialog-create',
@@ -28,6 +29,7 @@ export class SaleDialogCreateComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<SaleDialogCreateComponent>,
     private productService: ProductService,
+    private saleHttp: SaleHttpService,
     private productHttp: ProductHttpService,
     public dialog: MatDialog,
   ) {
@@ -94,8 +96,12 @@ export class SaleDialogCreateComponent implements OnInit {
       userid : '5dc36b934967ed31cc076620'
     };
     sales.products = this.dataSource.data.map(ds => ({
-      productid: ds.actions._id, quantity: ds.quantity, saleprice: ds.price * ds.quantity
+      productindex: ds.index,
+      productid: ds.actions._id,
+      quantity: ds.quantity,
+      saleprice: ds.price * ds.quantity,
+      productname: ds.actions.name
     }));
-    console.log(sales);
+    this.saleHttp.createItem(sales).subscribe();
   }
 }

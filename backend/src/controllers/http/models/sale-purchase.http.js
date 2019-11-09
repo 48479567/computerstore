@@ -11,7 +11,7 @@ const createSalePurchase = async (req, res, model, statusNumber, selection) => {
           Product.findByIdAndUpdate(p.productid,
             { $inc: { 
                 quantity: -p.quantity * selection.operation, 
-                [selection.selector]: p[`${selection.selector}price`] * p.quantity 
+                [selection.selector]: p[`${selection.selector}price`]
             }}, { new: true }).then()
       })
   
