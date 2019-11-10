@@ -1,20 +1,27 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <app-filter #filter [filtersSources]="filtersCharts"></app-filter>
+    <app-filter #filterChart [filtersSources]="filtersCharts"></app-filter>
     <app-filter-list
       #schemaSelect
-      [filterSourcesList]="[
-        {key: 'product', value: 'productChart'},
-        {key: 'category', value: 'categoryChart'}
-      ]"
+      [filterSourcesList]="filterSourceList"
     ></app-filter-list>
   </mat-toolbar-row>
 </mat-toolbar>
+<ng-container *ngIf="schemaSelect.selectValue.data.length > 0">
 <mat-card>
   <mat-card-content>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est sint nesciunt voluptates necessitatibus fugiat. Magni assumenda, reiciendis vitae nihil nulla maiores quisquam tempora suscipit? Culpa ipsum impedit sunt quidem porro.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum maiores quam asperiores, atque id perspiciatis quas voluptatibus, aperiam animi quidem vero neque voluptate quos quibusdam minima! Ex quod ut ab!
+    <ng-container *ngFor="let item of schemaSelect.selectValue.items; index as i">
+    <mat-chip-list aria-label="Color selection">
+      <mat-chip  selected [color]="getColorChip(item)">
+        {{ i }} - {{ item.name }}
+      </mat-chip>
+    </mat-chip-list>
+  </ng-container>
   </mat-card-content>
 </mat-card>
-<app-report [data]="schemaSelect.selectValue" [type]="filter.value"></app-report>
 
+  <app-report
+    [data]="schemaSelect.selectValue.data"
+    [barChartLabels]="schemaSelect.selectValue.labels"
+    [type]="filterChart.value"></app-report>
+</ng-container>

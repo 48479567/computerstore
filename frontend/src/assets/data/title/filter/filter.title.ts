@@ -11,7 +11,7 @@ export const filtersSources: FilterToggleIcon[] = [
 
 export const filtersCharts: FilterToggleIcon[] = [
   new FilterToggleIcon('Line', 'line', 'show_chart'),
-  new FilterToggleIcon('Bar', 'bar', 'bar_chart'),
+  new FilterToggleIcon('Bar', 'horizontalBar', 'bar_chart'),
   new FilterToggleIcon('Radar', 'radar', 'track_changes'),
   new FilterToggleIcon('Pie', 'pie', 'pie_chart'),
   new FilterToggleIcon('Doughnut', 'doughnut', 'donut_small'),

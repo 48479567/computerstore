@@ -6,25 +6,24 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./report.component.scss']
 })
 export class ReportComponent implements OnInit {
-  @Input() data: any[];
+  @Input() data: any[] = [];
+  @Input() barChartLabels: string[] = [];
   @Input() type: string;
 
   public barChartOptions = {
-    scaleShowVerticalLines: false,
+    scaleShowVerticalLines: true,
     responsive: true,
 
   };
 
-  public barChartLabels = [
-    '2015', '2016', '2017', '2018', '2019'
-  ];
 
   public barChartLegend = true;
 
   constructor() { }
 
   ngOnInit() {
-    this.type = 'bar';
+    this.type = 'line';
+    console.log('data in OnInit', this.data);
   }
 
 }

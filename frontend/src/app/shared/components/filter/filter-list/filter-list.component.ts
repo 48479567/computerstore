@@ -9,11 +9,16 @@ import { SelectOption } from 'src/app/shared/models';
 export class FilterListComponent implements OnInit {
   @Input() filterSourcesList: SelectOption[] = [];
   @Input() filterLabel = '';
-  selectValue: string | number = '' || 0;
+  selectValue = {
+    data: [],
+    labels: [],
+    items: []
+  };
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.filterSourcesList);
   }
 
 }
