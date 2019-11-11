@@ -7,21 +7,34 @@
     ></app-filter-list>
   </mat-toolbar-row>
 </mat-toolbar>
-<ng-container *ngIf="schemaSelect.selectValue.data.length > 0">
-<mat-card>
-  <mat-card-content>
-    <ng-container *ngFor="let item of schemaSelect.selectValue.items; index as i">
-    <mat-chip-list aria-label="Color selection">
-      <mat-chip  selected [color]="getColorChip(item)">
-        {{ i }} - {{ item.name }}
-      </mat-chip>
-    </mat-chip-list>
-  </ng-container>
+<div class="content-result">
+  <ng-container *ngIf="schemaSelect.selectValue.data.length > 0">
+  <mat-card>
+    <mat-card-content>
+      <ng-container
+        *ngFor="let item of schemaSelect.selectValue.items; index as i">
+      <mat-chip-list aria-label="Color selection">
+        <mat-chip  selected [style.backgroundColor]="getColorHex(i)">
+          <mat-icon>web_asset</mat-icon> {{ i }} - {{ item.name }}
+        </mat-chip>
+        <mat-chip mat-line>Investment: {{ item.investment }}</mat-chip>
+        <mat-chip mat-line>Sale: {{ item.sale }}</mat-chip>
+        <mat-chip mat-line>Gain: {{ item.sale - item.investment }}</mat-chip>
+      </mat-chip-list>
+    </ng-container>
   </mat-card-content>
-</mat-card>
-
-  <app-report
-    [data]="schemaSelect.selectValue.data"
-    [barChartLabels]="schemaSelect.selectValue.labels"
-    [type]="filterChart.value"></app-report>
-</ng-container>
+  <mat-card-footer>
+    <h4 mat-subtitle>Total</h4>
+    <ul *ngFor="let t of total | keyvalue">
+        <h6 mat-subtitle>{{ t.key | titlecase }}</h6>
+      <ol>Sale: {{ t.value.sale }}</ol>
+      <ol>Investment: {{ t.value.investment }}</ol>
+    </ul>
+  </mat-card-footer>
+  </mat-card>
+    <app-report
+      [data]="schemaSelect.selectValue.data"
+      [barChartLabels]="schemaSelect.selectValue.labels"
+      [type]="filterChart.value"></app-report>
+  </ng-container>
+</div>

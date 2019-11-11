@@ -26,6 +26,7 @@ export class ProductHttpService {
         tap((products: ProductSchemaForm[]) => {
           this.objRefService.getObjectRef(products, 'productid');
           this.productService.items = products;
+          console.log('productsHttp', products);
           this.logger.log(`Inserted ${products.length} products(s)`, 'bg-primary');
         }),
         catchError(this.handleErrorService.handleError<ProductSchemaForm[]>(

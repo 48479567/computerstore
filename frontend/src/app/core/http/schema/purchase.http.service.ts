@@ -27,6 +27,7 @@ export class PurchaseHttpService {
       .pipe(
         tap((purchases: PurchaseSchemaForm[]) => {
           this.objRefService.getObjectRef(purchases, 'purchaseid');
+          console.log('purchasesHttp', purchases);
           this.purchaseService.items = purchases;
           this.logger.log(`Inserted ${purchases.length} purchases(s)`, 'bg-primary');
         }),

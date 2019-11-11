@@ -12,7 +12,7 @@ export class TableComponent implements OnInit {
   data: MatTableDataSource<any>;
   dataRelevant: any[];
 
-  displayedColumns: string[] = [];
+  @Input() displayedColumns: string[] = [];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;

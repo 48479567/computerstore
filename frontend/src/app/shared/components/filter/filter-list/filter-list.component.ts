@@ -11,6 +11,7 @@ export class FilterListComponent implements OnInit {
   @Input() filterLabel = '';
   selectValue = {
     data: [],
+    backgroundColor: [],
     labels: [],
     items: []
   };

@@ -20,14 +20,11 @@ export class ResultComponent implements OnInit {
   filtersSources: FilterToggle[];
   filtersCharts: FilterToggle[];
   ChartsLabel: string[];
-
-
   filterSourceList = [];
-
-  viewChartData(schemaSelect) {
-    console.log(this.filterSourceList);
-    console.log(schemaSelect);
-  }
+  total = {
+    product: { investment: 0, sale: 0 },
+    category: { investmenet: 0, sale: 0 }
+  };
 
   constructor(
     private productService: ProductService,
@@ -49,7 +46,7 @@ export class ResultComponent implements OnInit {
       this.filterSourceList.push({
         key: 'Products',
         value: {
-          data: this.getChartData(this.products),
+          data: this.getChartData(this.products, 'product'),
           labels: this.getChartLabel(this.products),
           items: this.products
         }
@@ -62,7 +59,7 @@ export class ResultComponent implements OnInit {
         this.filterSourceList.push({
           key: 'Products',
           value: {
-            data: this.getChartData(this.products),
+            data: this.getChartData(this.products, 'product'),
             labels: this.getChartLabel(this.products),
             items: this.products
           }
@@ -78,7 +75,7 @@ export class ResultComponent implements OnInit {
       this.filterSourceList.push({
         key: 'Categories',
         value: {
-          data: this.getChartData(this.categories),
+          data: this.getChartData(this.categories, 'category'),
           labels: this.getChartLabel(this.categories),
           items: this.categories
         }
@@ -91,7 +88,7 @@ export class ResultComponent implements OnInit {
         this.filterSourceList.push({
           key: 'Categories',
           value: {
-            data: this.getChartData(this.categories),
+            data: this.getChartData(this.categories, 'category'),
             labels: this.getChartLabel(this.categories),
             items: this.categories
           }
@@ -100,10 +97,17 @@ export class ResultComponent implements OnInit {
     );
   }
 
-  getChartData(resource: any[]): { data: number[], label: string }[] {
-    return [
-      { data: resource.map(r => r.investment), label: 'Investment' },
-      { data: resource.map(r => r.sale), label: 'Sale'},
+  getChartData(resource: any[], item: string): { data: number[], backgroundColor: string[], label: string }[] {
+    return [{
+        data: resource.map(r => {
+          this.total[item].sale += r.sale;
+          this.total[item].investment += r.investment;
+
+          return r.sale - r.investment;
+        }),
+        backgroundColor: resource.map((r, index) => this.getColorHex(index)),
+        label: 'Gain'
+      }
     ];
   }
 
@@ -123,5 +127,9 @@ export class ResultComponent implements OnInit {
 
   getColorChip(item: any): string {
     return item.sale - item.investment ? 'primary' : 'accent';
+  }
+
+  getColorHex(numberInsert: number): string {
+    return `#${(Math.floor(16777215 / (numberInsert + 1.000015))).toString(16)}`;
   }
 }

@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material';
 export class ContentComponent implements OnInit {
   @Input() sources: any[];
   @Input() itemCreate: any;
+  @Input() fieldToDisplay: string[];
   filtersIcon: FilterToggleIcon[];
 
   constructor(

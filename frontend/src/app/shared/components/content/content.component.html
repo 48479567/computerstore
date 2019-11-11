@@ -11,9 +11,8 @@
     *ngFor="let source of sources; index as i"
     [item]="source" [index]="i"
   ></app-item>
-  <app-item-create
-    class="front-primary"
-    [item]="itemCreate"
-  ></app-item-create>
-
 </ng-template>
+<app-item-create
+  class="front-primary"
+  [item]="itemCreate"
+></app-item-create>

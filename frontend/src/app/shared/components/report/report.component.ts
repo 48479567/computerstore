@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-report',
@@ -10,8 +11,8 @@ export class ReportComponent implements OnInit {
   @Input() barChartLabels: string[] = [];
   @Input() type: string;
 
-  public barChartOptions = {
-    scaleShowVerticalLines: true,
+  public barChartOptions: ChartOptions = {
+    showLines: true,
     responsive: true,
 
   };
