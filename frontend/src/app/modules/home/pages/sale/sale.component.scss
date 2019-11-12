@@ -60,4 +60,6 @@ app-item-create {
 
 mat-paginator {
   width: 100%;
+  position: sticky;
+  bottom: 0;
 }

@@ -20,6 +20,7 @@ tr.example-element-row:not(.example-expanded-row):hover {
 
 tr.example-element-row:not(.example-expanded-row):active {
   background: #efefef;
+  color: #ffffff;
 }
 
 .example-element-row td {
@@ -61,4 +62,6 @@ app-item-create {
 
 mat-paginator {
   width: 100%;
+  position: sticky;
+  bottom: 0;
 }
