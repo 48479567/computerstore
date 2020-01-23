@@ -14,7 +14,6 @@ export class ReportComponent implements OnInit {
   public barChartOptions: ChartOptions = {
     showLines: true,
     responsive: true,
-
   };
 
 
