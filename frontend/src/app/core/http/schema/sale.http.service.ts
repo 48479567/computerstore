@@ -27,7 +27,6 @@ export class SaleHttpService {
       .pipe(
         tap((sales: SaleSchemaForm[]) => {
           this.objRefService.getObjectRef(sales, 'saleid');
-          console.log('salesHttp', sales);
           this.saleService.items = sales;
           this.logger.log(`Inserted ${sales.length} sales(s)`, 'bg-primary');
         }),

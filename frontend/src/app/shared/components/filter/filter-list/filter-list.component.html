@@ -1,4 +1,4 @@
-<mat-form-field [style.fontSize.px]="10" appearance="outline">
+<mat-form-field [style.fontSize.px]="10" appearance="outline" [style.color]="fontColor">
   <mat-label>{{ filterLabel | titlecase }}</mat-label>
   <mat-select #matSelect (valueChange)="selectValue = matSelect.value">
     <mat-option *ngFor="let fsl of  filterSourcesList"

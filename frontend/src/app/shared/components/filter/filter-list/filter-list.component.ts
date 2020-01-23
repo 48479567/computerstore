@@ -16,10 +16,11 @@ export class FilterListComponent implements OnInit {
     items: []
   };
 
+  @Input() fontColor: '#000000';
+
   constructor() { }
 
   ngOnInit() {
-    console.log(this.filterSourcesList);
   }
 
 }

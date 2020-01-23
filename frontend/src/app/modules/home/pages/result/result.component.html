@@ -1,9 +1,10 @@
-<mat-toolbar>
+<mat-toolbar class="toolbar-filter">
   <mat-toolbar-row>
     <app-filter #filterChart [filtersSources]="filtersCharts"></app-filter>
     <app-filter-list
       #schemaSelect
       [filterSourcesList]="filterSourceList"
+      fontColor="#ffffff"
     ></app-filter-list>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -14,17 +15,23 @@
       <ng-container
         *ngFor="let item of schemaSelect.selectValue.items; index as i">
       <mat-chip-list aria-label="Color selection">
-        <mat-chip  selected [style.backgroundColor]="getColorHex(i)">
-          <mat-icon>web_asset</mat-icon> {{ i }} - {{ item.name }}
-        </mat-chip>
-        <mat-chip mat-line>Investment: {{ item.investment }}</mat-chip>
-        <mat-chip mat-line
-          clas="bg-success"
-        >Sale: {{ item.sale }}</mat-chip>
-        <mat-chip
-          mat-line
-          class="bg-primary"
-        >Gain: {{ item.sale - item.investment }}</mat-chip>
+        <div class="content-mat-chip-list">
+          <div>
+            <mat-chip  selected [style.backgroundColor]="getColorHex(i)">
+              <mat-icon>web_asset</mat-icon> {{ i }} - {{ item.name }}
+            </mat-chip>
+          </div>
+          <div>
+            <mat-chip mat-line>Investment: {{ item.investment }}</mat-chip>
+            <mat-chip mat-line
+              clas="bg-success"
+            >Sale: {{ item.sale }}</mat-chip>
+            <mat-chip
+              mat-line
+              class="bg-primary"
+            >Gain: {{ item.sale - item.investment }}</mat-chip>
+          </div>
+        </div>
       </mat-chip-list>
     </ng-container>
   </mat-card-content>
@@ -39,6 +46,6 @@
     <app-report
       [data]="schemaSelect.selectValue.data"
       [barChartLabels]="schemaSelect.selectValue?.labels"
-      [type]="filterChart.value"></app-report>
-  </ng-container>
+      [type]="filterChart?.value"></app-report>
+    </ng-container>
 </div>

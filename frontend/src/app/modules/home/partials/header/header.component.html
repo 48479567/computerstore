@@ -6,11 +6,10 @@
       <mat-icon>{{ menuItemIconIsOpen? 'menu_open' : 'menu' }}</mat-icon>
     </button>
     <button
-      class="right"
-      *ngFor="let item of menuItemLinks"
-      [routerLink]="item.link"
       mat-button
-      >{{ item.label }}</button>
+      routerLink="/signin">
+      <mat-icon>logout</mat-icon>
+      LOGOUT</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-drawer-container hasBackdrop="false">

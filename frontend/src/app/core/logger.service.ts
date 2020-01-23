@@ -9,7 +9,6 @@ export class LoggerService {
   ) { }
 
   log(msg: string, pclass?: string): void {
-    console.log(msg);
     this.snackbar.open(msg, '✔️', {
       duration: 5000,
       panelClass: [pclass ? pclass : 'bg-dark']

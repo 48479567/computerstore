@@ -7,6 +7,9 @@
 
 mat-drawer-container {
   position: absolute;
+  background-image: url(https://i.pinimg.com/originals/f9/fe/72/f9fe727c8fb7d7cc204dce1a994ed77c.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   top: 64px;
   bottom: 47px;
   left: 0;
@@ -25,7 +28,16 @@ mat-drawer-content {
   align-content: center;
   flex: 1;
 }
+mat-toolbar-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 mat-toolbar-row button {
-  font-size: 12px;
+  font-size: 9px;
+}
+
+mat-drawer {
+  border: none;
 }
 

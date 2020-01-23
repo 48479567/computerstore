@@ -27,7 +27,6 @@ export class CategoryHttpService {
         tap((categories: CategorySchemaForm[]) => {
           this.logger.log(`Insert ${categories.length} categories.`, 'bg-primary');
           this.objRefService.getObjectRef(categories, 'categoryid');
-          console.log('categoriesHttp', categories);
           this.categoryService.items = categories;
         }),
         catchError(this.handleErrorService.handleError<CategorySchemaForm[]>(

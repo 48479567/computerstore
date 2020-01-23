@@ -11,7 +11,7 @@ mat-card {
   padding: 30px 50px;
 }
 
-mat-card-actions {
+mat-card-actions, mat-card-header {
   display: flex;
   justify-content: center;
 }
@@ -19,6 +19,7 @@ mat-card-actions {
 a {
   display: block;
   text-align: center;
+  text-decoration: none;
 }
 
 

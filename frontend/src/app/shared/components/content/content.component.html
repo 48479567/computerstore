@@ -1,11 +1,11 @@
-<mat-toolbar>
+<mat-toolbar class="toolbar-filter">
   <mat-toolbar-row>
     <app-filter #filter [filtersSources]="filtersIcon"></app-filter>
   </mat-toolbar-row>
 </mat-toolbar>
 <app-table
   *ngIf="filter.value === 'list'; else cardView"
-  [dataSource]="sources"></app-table>
+  [dataSource]="sources" [displayedColumns]="['name', 'quantity', 'investment', 'sale', 'price', 'description']"></app-table>
 <ng-template #cardView>
   <app-item
     *ngFor="let source of sources; index as i"

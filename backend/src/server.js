@@ -19,15 +19,20 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-// app.use(express.static(path.join(__dirname, '/static/frontend')))
+app.use(express.static(path.join(__dirname, '/static/frontend')))
 
-// app.get('/*', (req, res) => {
-//   res.sendFile(path.join(__dirname))
-// })
-app.get('/', (req, res) => {
-  res.send('API Server ready')
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname))
 })
 app.use('/api', require('./routes'))
+// app.get('/', (req, res) => {
+//   res.send('API Server ready')
+// })
+
+app.get('*', (req, res) => { 
+  res.redirect('/')
+})
 
 mongoose.connect(app.get('connectdb'), {
   useUnifiedTopology: true,

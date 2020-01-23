@@ -75,7 +75,6 @@ export class PurchaseDialogCreateComponent implements OnInit {
       actions: selProduct
     });
     this.indexSelectProducts.push(index);
-    console.log(this.dataSource.data);
     this.dataSource.filter = '';
   }
 
