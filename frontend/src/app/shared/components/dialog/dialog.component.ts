@@ -37,7 +37,9 @@ export class DialogCreateResourceComponent implements OnInit {
   }
 
   createItem(value: any): void {
-    this.ors.selectSchema.http.createItem(value).subscribe();
+    this.ors.selectSchema.http.createItem(value).subscribe(
+     () => this.onClose()
+    );
   }
 }
 

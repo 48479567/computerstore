@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+mat-card-header {
+  justify-content: center;
+}
+
 mat-card {
   padding: 30px 50px;
 }
@@ -19,6 +23,7 @@ mat-card-actions {
 a {
   display: block;
   text-align: center;
+  text-decoration: none;
 }
 
 

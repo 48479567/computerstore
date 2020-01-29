@@ -102,6 +102,11 @@ export class SaleDialogCreateComponent implements OnInit {
       saleprice: ds.price * ds.quantity,
       productname: ds.actions.name
     }));
-    this.saleHttp.createItem(sales).subscribe();
+    this.saleHttp.createItem(sales).subscribe(
+      () => {
+        this.dialogRef.close();
+        this.dataSource.filter = '';
+      }
+    );
   }
 }

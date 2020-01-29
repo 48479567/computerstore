@@ -102,6 +102,8 @@ export class PurchaseDialogCreateComponent implements OnInit {
       investmentprice: ds.price * ds.quantity,
       productname: ds.actions.name
     }));
-    this.purchaseHttp.createItem(purchases).subscribe();
+    this.purchaseHttp.createItem(purchases).subscribe(
+      () => this.dialogRef.close()
+    );
   }
 }
