@@ -13,6 +13,7 @@ export class TableComponent implements OnInit {
   dataRelevant: any[];
 
   @Input() displayedColumns: string[] = [];
+  internalDisplayedColumns: string[] = [];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -21,34 +22,11 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataRelevant = this.deleteIrrelevantFields(this.dataSource);
-    this.data = new MatTableDataSource(this.dataRelevant);
-    this.displayedColumns = Object.keys(this.dataRelevant[0]);
+    this.data = new MatTableDataSource(this.dataSource);
     this.data.paginator = this.paginator;
+    this.internalDisplayedColumns = ['order', ...this.displayedColumns];
     this.data.sort = this.sort;
-    console.log(this.data);
-
   }
-
-  deleteIrrelevantFields(data: any[]): Array<any> {
-    const dataRelevant: any[] = data.map((d: any, index: number) => {
-      const order = index + 1;
-      const {
-        name = '-',
-        mark = '-',
-        quantity =  '-',
-        investment = '-',
-        sale = '-',
-        price = '-',
-        description = '-',
-      } = d;
-
-      return { order, name, mark, quantity, investment, sale, price, description };
-    });
-    return dataRelevant;
-  }
-
-
 
   applyFilter(filterValue: string) {
     this.data.filter = filterValue.trim().toLowerCase();

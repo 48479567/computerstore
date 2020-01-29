@@ -1,14 +1,7 @@
-:host {
-  height: 64px;
-}
-
 mat-button-toggle-group {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: row;
-  flex-flow: row wrap;
-
+  overflow-x: auto;
 }
 
 mat-button-toggle {

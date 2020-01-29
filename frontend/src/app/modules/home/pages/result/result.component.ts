@@ -97,14 +97,24 @@ export class ResultComponent implements OnInit {
     );
   }
 
-  getChartData(resource: any[], item: string): { data: number[], backgroundColor: string[], label: string }[] {
+  getChartData(resource: any[], item: string): {
+    mainData: any[],
+    data: any[],
+    extraData: any[],
+    backgroundColor: string[],
+    label: string }[] {
     return [{
-        data: resource.map(r => {
+        mainData: resource.map(r => {
           this.total[item].sale += r.sale;
           this.total[item].investment += r.investment;
-
           return r.sale - r.investment;
         }),
+        data: [],
+        extraData: resource.map((r: any, index: number) => ({
+          x: index + 1,
+          y: r.sale - r.investment,
+          r: 10
+        })),
         backgroundColor: resource.map((r, index) => this.getColorHex(index)),
         label: 'Gain'
       }
@@ -132,4 +142,5 @@ export class ResultComponent implements OnInit {
   getColorHex(numberInsert: number): string {
     return `#${(Math.floor(16777215 / (numberInsert + 1.000015))).toString(16)}`;
   }
+
 }
