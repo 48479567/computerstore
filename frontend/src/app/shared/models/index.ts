@@ -6,5 +6,6 @@ export * from './schema/category/category.schema';
 export * from './filter/filter.model';
 export * from './dialog/dialog.model';
 export * from './menu/page.model';
+export * from './menu/header.menu.model';
 export * from './schema/purchase/purchase.schema';
 export * from './schema/sale/sale.schema';

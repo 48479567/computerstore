@@ -1,21 +1,32 @@
-<mat-toolbar class="toolbar" color="primary">
-  <mat-toolbar-row >
+<mat-toolbar class="toolbar">
+  <mat-toolbar-row>
     <button
       mat-button
       (click)="toggle(drawer)">
       <mat-icon>{{ menuItemIconIsOpen? 'menu_open' : 'menu' }}</mat-icon>
     </button>
-    <button
-      class="right"
-      *ngFor="let item of menuItemLinks"
-      [routerLink]="item.link"
-      mat-button
-      >{{ item.label }}</button>
+    <div class="pages-link-container">
+      <button
+        mat-button
+        *ngFor="let pageIcon of pagesIcon"
+        [routerLink]="'./'+pageIcon.path"
+        routerLinkActive="page-icon-active">
+        <mat-icon>{{ pageIcon.icon }}</mat-icon>
+        {{ pageIcon.title }}</button>
+    </div>
+    <div class="log-links">
+      <button mat-button routerLink="/signin">
+        LogOut
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </button>
+    </div>
+    
+    
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-drawer-container hasBackdrop="false">
   <mat-drawer #drawer mode="side">
-    <app-sidebar></app-sidebar>
+    <!-- <app-sidebar></app-sidebar> -->
   </mat-drawer>
   <mat-drawer-content>
     <ng-content></ng-content>

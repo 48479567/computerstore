@@ -1,13 +1,39 @@
 .item-card {
-  max-width: 350px;
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
   margin: 5px;
+  height: 300px;
+  cursor: pointer;
 }
 
-.item-header-image {
-  background-size: cover;
+mat-card-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+  background: #757575ee;
+  color: #ffffff;
+  border-radius: 4px 0 0 4px;
 }
 
-.word-wrap {
-  word-wrap: break-word;
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+mat-card-content, mat-card-content img {
+  width: 300px;
+}
+
+mat-card-content img {
+  margin: 0;
+}
+
+mat-card:hover {
+  filter: brightness(85%);
+  transform: translateX(-3px) translateY(-3px);
 }

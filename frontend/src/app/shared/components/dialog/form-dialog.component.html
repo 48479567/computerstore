@@ -2,21 +2,30 @@
 <mat-dialog-content class="mat-typography">
   <app-dynamic-form #dynamicForm [questions]="questions">
   </app-dynamic-form>
-  <app-item
-  [item]="dynamicForm.form.value"
-  [showActions]="false"
-  ></app-item>
+  <div class="show-item">
+    <h2>{{ dynamicForm.form.value.name }}</h2>
+    <img [src]="dynamicForm.form.value.image">
+    <p>Investment: {{ dynamicForm.form.value.investment }}</p>
+    <p>Sale: {{ dynamicForm.form.value.sale }}</p>
+    <p>{{ dynamicForm.form.value.price? 
+          'Price:' + 's/.' + dynamicForm.form.value.price
+          : '' }}</p>
+    <p>{{ dynamicForm.form.value.description? 
+          'Description:' + dynamicForm.form.value.description
+          : '' }}</p>
+  </div>
   <ng-container *ngFor="let propery of data.content | keyvalue">
     <app-form-scalable
       *ngIf="isTypeOfObject(propery.value)"
       [form]="dynamicForm.form"
       [object]="propery.value"
       [nameObject]="propery.key"></app-form-scalable>
-    <!-- <app-form-object [form]="dynamicForm.form" [resource]="this.data.content"></app-form-object> -->
   </ng-container>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button [disabled]="!dynamicForm.form.valid" (click)="updateItem(dynamicForm.form.value)">Save</button>
+  <button mat-button 
+    [disabled]="!dynamicForm.form.valid" 
+    (click)="updateItem(dynamicForm.form.value)">Save</button>
   <button mat-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

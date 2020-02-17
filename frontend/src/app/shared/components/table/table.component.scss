@@ -8,9 +8,22 @@
 
 }
 
-div {
+.filter-container {
+  position: absolute;
+  top: 0;
   width: 90%;
-  height: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-container mat-form-field {
+  width: 90%;
+}
+
+.table-container {
+  width: 90%;
+  height: 90%;
   margin: auto;
   overflow-x: auto;
 }
@@ -29,5 +42,6 @@ mat-paginator {
   position: sticky;
   bottom: 0;
   left: 0;
+  border: 1px solid transparent;
 }
 

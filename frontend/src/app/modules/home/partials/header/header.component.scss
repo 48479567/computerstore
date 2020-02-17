@@ -3,6 +3,8 @@
   top: 0;
   width: 100%;
   z-index: 2;
+  background: #99b7e0;
+  color: #ffffff;
 }
 
 mat-drawer-container {
@@ -25,7 +27,28 @@ mat-drawer-content {
   align-content: center;
   flex: 1;
 }
-mat-toolbar-row button {
-  font-size: 12px;
+
+mat-toolbar-row {
+  display: flex;
+  justify-content: space-between;
 }
 
+.pages-link-container {
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.pages-link-container button {
+  padding: 15px;
+}
+
+.page-icon-active::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  margin: 10px 0 0 -15px;
+  background-color: #00ff00;
+  height: 4px;
+  display: block;
+}

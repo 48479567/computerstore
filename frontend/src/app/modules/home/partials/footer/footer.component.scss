@@ -6,6 +6,11 @@
   height: 30px;
 }
 
+.toolbar {
+  background: #99b7e0;
+  color: #ffffff;
+}
+
 :host, mat-toolbar-row {
   display: flex;
   flex-direction: column;

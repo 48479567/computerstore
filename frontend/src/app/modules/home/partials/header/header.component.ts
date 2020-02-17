@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItemLink, MenuItem } from 'src/app/shared/models/menu/header.menu.model';
+import { PageIcon, MenuItemLink } from 'src/app/shared/models';
+import { pagesIcon } from '../../../../../assets/data/menu/page.data';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,8 @@ import { MenuItemLink, MenuItem } from 'src/app/shared/models/menu/header.menu.m
 
 export class HeaderComponent implements OnInit {
   menuItemIconIsOpen = false;
+
+  pagesIcon: PageIcon[] = pagesIcon;
 
   menuItemLinks: MenuItemLink[] = [
     new MenuItemLink('signin', '/signin'),
