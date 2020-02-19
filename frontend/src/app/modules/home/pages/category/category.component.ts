@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CategorySchemaForm, formatQuestionCategory } from 'src/app/shared/models';
-import { CategoryHttpService } from 'src/app/core/http/schema/category.http.service';
-import { CategoryService } from 'src/app/core/services/schema/category.service';
-import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { CategorySchemaForm, formatQuestionCategory } from '../../../../shared/models';
+import { CategoryHttpService } from '../../../../core/http/schema/category.http.service';
+import { CategoryService } from '../../../../core/services/schema/category.service';
+import { ObjectRefService } from '../../../../core/services/schema/object-ref.service';
 
 @Component({
   selector: 'app-category',

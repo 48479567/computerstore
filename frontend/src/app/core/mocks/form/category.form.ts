@@ -1,4 +1,4 @@
-import { QuestionBase, TextboxQuestion, CategorySchemaForm } from 'src/app/shared/models';
+import { QuestionBase, TextboxQuestion, CategorySchemaForm } from '../../../shared/models';
 
 export const setCategoryQuestions = (category: CategorySchemaForm) => {
   const entriesCategory = Object.entries(category);

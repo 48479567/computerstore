@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { MaterialModule } from './material/material.module';
 import { ChartsModule } from 'ng2-charts';
 
@@ -29,6 +29,8 @@ import {
   SelectComponent,
 
 } from './components';
+
+import { ChangeNamePipe, SatinizerPipe } from './pipes';
 
 const COMPONENTS = [
   DynamicFormComponent,
@@ -62,6 +64,11 @@ const ENTRY_COMPONENTS = [
 
 ];
 
+const PIPES = [
+  ChangeNamePipe,
+  SatinizerPipe
+];
+
 @NgModule({
   imports: [
     MaterialModule,
@@ -70,8 +77,8 @@ const ENTRY_COMPONENTS = [
     ChartsModule,
 
   ],
-  exports: [MaterialModule, ...COMPONENTS, ReactiveFormsModule, FormsModule],
-  declarations: [...COMPONENTS],
+  exports: [MaterialModule, ...COMPONENTS, ...PIPES, ReactiveFormsModule, FormsModule],
+  declarations: [...COMPONENTS, ...PIPES],
   entryComponents: [...ENTRY_COMPONENTS],
   providers: [],
 })

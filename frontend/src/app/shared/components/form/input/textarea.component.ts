@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SelectOption } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-textarea',

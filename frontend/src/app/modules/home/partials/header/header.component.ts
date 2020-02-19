@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PageIcon, MenuItemLink } from 'src/app/shared/models';
+import { PageIcon, MenuItemLink } from '../../../../shared/models';
 import { pagesIcon } from '../../../../../assets/data/menu/page.data';
 
 @Component({

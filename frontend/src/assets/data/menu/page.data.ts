@@ -1,4 +1,4 @@
-import { Page, PageIcon } from 'src/app/shared/models';
+import { Page, PageIcon } from '../../../app/shared/models';
 
 export const pages: Page[] = [
   new Page('Category', 'category'),
@@ -14,4 +14,5 @@ export const pagesIcon: PageIcon[] = [
   new PageIcon('Sale', 'sale', 'money'),
   new PageIcon('Purchase', 'purchase', 'shop'),
   new PageIcon('Result', 'result', 'insert_chart'),
+  new PageIcon('Test', 'test', 'all_inbox')
 ];

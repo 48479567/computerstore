@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProductService } from 'src/app/core/services/schema/product.service';
-import { FilterService } from 'src/app/core/services/filter/filter.service';
+import { ProductService } from '../../../../core/services/schema/product.service';
+import { FilterService } from '../../../../core/services/filter/filter.service';
 
-import { ProductSchemaForm, FilterToggle, CategorySchemaForm } from 'src/app/shared/models';
-import { CategoryService } from 'src/app/core/services/schema/category.service';
-import { ProductHttpService } from 'src/app/core/http/schema/product.http.service';
-import { CategoryHttpService } from 'src/app/core/http/schema/category.http.service';
+import { ProductSchemaForm, FilterToggle, CategorySchemaForm } from '../../../../shared/models';
+import { CategoryService } from '../../../../core/services/schema/category.service';
+import { ProductHttpService } from '../../../../core/http/schema/product.http.service';
+import { CategoryHttpService } from '../../../../core/http/schema/category.http.service';
 
 @Component({
   selector: 'app-result',

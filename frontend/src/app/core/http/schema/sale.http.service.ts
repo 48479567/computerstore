@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
-import { SaleSchemaForm, ProductSchemaForm } from 'src/app/shared/models';
+import { SaleSchemaForm, ProductSchemaForm } from '../../../shared/models';
 import { URL } from '../data.http';
-import { SaleService } from 'src/app/core/services/schema/sale.service';
-import { LoggerService } from 'src/app/core/logger.service';
-import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
-import { HandleErrorService } from 'src/app/core/handle-error.service';
+import { SaleService } from '../../../core/services/schema/sale.service';
+import { LoggerService } from '../../../core/logger.service';
+import { ObjectRefService } from '../../../core/services/schema/object-ref.service';
+import { HandleErrorService } from '../../../core/handle-error.service';
 import { ProductService } from '../../services/schema/product.service';
 
 @Injectable({ providedIn: 'root' })

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestionBase, TextboxQuestion } from 'src/app/shared/models';
+import { QuestionBase, TextboxQuestion } from '../../../../../shared/models';
 
 const questions: QuestionBase<any>[] = [
   new TextboxQuestion({

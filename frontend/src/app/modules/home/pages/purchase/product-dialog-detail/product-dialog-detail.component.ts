@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ProductSchemaForm, FormDialogData } from 'src/app/shared/models';
+import { ProductSchemaForm, FormDialogData } from '../../../../../shared/models';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({

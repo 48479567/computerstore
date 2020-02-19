@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PurchaseDialogCreateComponent } from './purchase-dialog-create/purchase-dialog-create.component';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { PurchaseHttpService } from 'src/app/core/http/schema/purchase.http.service';
-import { PurchaseService } from 'src/app/core/services/schema/purchase.service';
-import { PurchaseSchemaForm } from 'src/app/shared/models';
+import { PurchaseHttpService } from '../../../../core/http/schema/purchase.http.service';
+import { PurchaseService } from '../../../../core/services/schema/purchase.service';
+import { PurchaseSchemaForm } from '../../../../shared/models';
 
 @Component({
   selector: 'app-purchase',

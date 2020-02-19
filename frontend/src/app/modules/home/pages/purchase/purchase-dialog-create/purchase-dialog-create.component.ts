@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatTableDataSource, MatDialog } from '@angular/material';
-import { ProductSchemaForm, PurchaseSchemaForm } from 'src/app/shared/models';
-import { ProductService } from 'src/app/core/services/schema/product.service';
-import { ProductHttpService } from 'src/app/core/http/schema/product.http.service';
+import { ProductSchemaForm, PurchaseSchemaForm } from '../../../../../shared/models';
+import { ProductService } from '../../../../../core/services/schema/product.service';
+import { ProductHttpService } from '../../../../../core/http/schema/product.http.service';
 import { ProductDialogDetailComponent } from '../product-dialog-detail/product-dialog-detail.component';
-import { PurchaseHttpService } from 'src/app/core/http/schema/purchase.http.service';
+import { PurchaseHttpService } from '../../../../../core/http/schema/purchase.http.service';
 
 @Component({
   selector: 'app-purchase-dialog-create',

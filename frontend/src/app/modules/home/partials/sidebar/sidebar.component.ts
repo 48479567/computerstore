@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PageIcon } from 'src/app/shared/models';
-import { pagesIcon } from 'src/assets/data';
+import { PageIcon } from '../../../../shared/models';
+import { pagesIcon } from '../../../../../assets/data';
 
 @Component({
   selector: 'app-sidebar',

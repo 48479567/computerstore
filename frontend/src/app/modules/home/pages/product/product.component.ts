@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductSchemaForm, formatQuestionProduct } from 'src/app/shared/models';
-import { ProductService } from 'src/app/core/services/schema/product.service';
-import { ProductHttpService } from 'src/app/core/http/schema/product.http.service';
-import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
+import { ProductSchemaForm, formatQuestionProduct } from '../../../../shared/models';
+import { ProductService } from '../../../../core/services/schema/product.service';
+import { ProductHttpService } from '../../../../core/http/schema/product.http.service';
+import { ObjectRefService } from '../../../../core/services/schema/object-ref.service';
 
 @Component({
   selector: 'app-product',

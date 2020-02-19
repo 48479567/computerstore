@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SaleDialogCreateComponent } from './sale-dialog-create/sale-dialog-create.component';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { SaleHttpService } from 'src/app/core/http/schema/sale.http.service';
-import { SaleService } from 'src/app/core/services/schema/sale.service';
-import { SaleSchemaForm } from 'src/app/shared/models';
+import { SaleHttpService } from '../../../../core/http/schema/sale.http.service';
+import { SaleService } from '../../../../core/services/schema/sale.service';
+import { SaleSchemaForm } from '../../../../shared/models';
 
 @Component({
   selector: 'app-sale',

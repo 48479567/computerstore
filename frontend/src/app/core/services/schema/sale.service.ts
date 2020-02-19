@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SaleSchemaForm } from 'src/app/shared/models';
+import { SaleSchemaForm } from '../../../shared/models';
 import { Observable, of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

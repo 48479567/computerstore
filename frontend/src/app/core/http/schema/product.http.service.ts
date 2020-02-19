@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
-import { ProductSchemaForm } from 'src/app/shared/models';
+import { ProductSchemaForm } from '../../../shared/models';
 import { URL } from '../data.http';
-import { ProductService } from 'src/app/core/services/schema/product.service';
-import { LoggerService } from 'src/app/core/logger.service';
-import { ObjectRefService } from 'src/app/core/services/schema/object-ref.service';
-import { HandleErrorService } from 'src/app/core/handle-error.service';
+import { ProductService } from '../../../core/services/schema/product.service';
+import { LoggerService } from '../../../core/logger.service';
+import { ObjectRefService } from '../../../core/services/schema/object-ref.service';
+import { HandleErrorService } from '../../../core/handle-error.service';
 
 @Injectable({ providedIn: 'root' })
 export class ProductHttpService {

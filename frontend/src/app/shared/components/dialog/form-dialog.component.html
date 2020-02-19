@@ -7,10 +7,10 @@
     <img [src]="dynamicForm.form.value.image">
     <p>Investment: {{ dynamicForm.form.value.investment }}</p>
     <p>Sale: {{ dynamicForm.form.value.sale }}</p>
-    <p>{{ dynamicForm.form.value.price? 
+    <p>{{ dynamicForm.form.value.price?
           'Price:' + 's/.' + dynamicForm.form.value.price
           : '' }}</p>
-    <p>{{ dynamicForm.form.value.description? 
+    <p>{{ dynamicForm.form.value.description?
           'Description:' + dynamicForm.form.value.description
           : '' }}</p>
   </div>
@@ -24,8 +24,8 @@
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button 
-    [disabled]="!dynamicForm.form.valid" 
+  <button mat-button
+    [disabled]="!dynamicForm.form.valid"
     (click)="updateItem(dynamicForm.form.value)">Save</button>
   <button mat-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

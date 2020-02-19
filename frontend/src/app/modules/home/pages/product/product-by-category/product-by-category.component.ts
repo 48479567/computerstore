@@ -1,5 +1,5 @@
 // import { Component, OnInit } from '@angular/core';
-// import { ProductSchemaForm } from 'src/app/shared/models';
+// import { ProductSchemaForm } from '../../../shared/models';
 
 // @Component({
 //   selector: 'app-product-by-category',
